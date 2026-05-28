@@ -1,0 +1,4 @@
+.DS_Store
+plugins/**/.env
+plugins/**/__pycache__/
+plugins/**/__pycache__/*

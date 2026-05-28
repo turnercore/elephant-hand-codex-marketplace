@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "grist": {
+      "command": "python3",
+      "args": [
+        "./scripts/run_grist_mcp.py"
+      ],
+      "note": "Starts the pinned community Grist MCP server after securely loading GRIST_API_KEY and GRIST_BASE_URL from the environment or plugin .env."
+    }
+  }
+}

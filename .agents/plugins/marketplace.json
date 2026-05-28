@@ -1,0 +1,20 @@
+{
+  "name": "elephant-hand-codex-marketplace",
+  "interface": {
+    "displayName": "Elephant Hand Codex Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "grist",
+      "source": {
+        "source": "local",
+        "path": "./plugins/grist"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

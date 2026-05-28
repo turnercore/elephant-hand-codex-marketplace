@@ -1,0 +1,43 @@
+{
+  "name": "grist",
+  "version": "0.2.0",
+  "description": "Work with Grist documents through MCP tools and a direct REST fallback helper.",
+  "author": {
+    "name": "Turner Core",
+    "email": "me@turnercore.dev",
+    "url": "https://grist.themonstersarecom.ing"
+  },
+  "homepage": "https://support.getgrist.com/rest-api/",
+  "repository": "https://github.com/gristlabs/grist-core",
+  "license": "MIT",
+  "keywords": [
+    "grist",
+    "spreadsheet",
+    "database",
+    "api"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Grist",
+    "shortDescription": "Inspect, query, and update Grist docs.",
+    "longDescription": "Adds a pinned Grist MCP server for rich document, schema, SQL, page, webhook, and record workflows, plus a zero-dependency REST helper for direct troubleshooting and explicit fallback operations against self-hosted or hosted Grist.",
+    "developerName": "Turner Core",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive",
+      "MCP"
+    ],
+    "websiteURL": "https://support.getgrist.com/rest-api/",
+    "privacyPolicyURL": "https://support.getgrist.com/data-security/",
+    "termsOfServiceURL": "https://github.com/gristlabs/grist-core/blob/main/LICENSE.txt",
+    "defaultPrompt": [
+      "List my Grist workspaces.",
+      "Read records from this Grist table.",
+      "Inspect this Grist document schema."
+    ],
+    "brandColor": "#16A34A"
+  }
+}
