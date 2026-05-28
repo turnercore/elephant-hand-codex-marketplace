@@ -6,8 +6,8 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 - `plugins/grist`: the Grist plugin package
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
+- `plugins/grist/.env.example`: local environment template for Grist credentials
 
 ## Updating
 
 After changing a plugin, update its cachebuster and reinstall it in Codex from this marketplace.
-
