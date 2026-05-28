@@ -30,6 +30,8 @@
       "Interactive",
       "MCP"
     ],
+    "composerIcon": "./assets/grist-icon.svg",
+    "logo": "./assets/grist-icon.svg",
     "websiteURL": "https://support.getgrist.com/rest-api/",
     "privacyPolicyURL": "https://support.getgrist.com/data-security/",
     "termsOfServiceURL": "https://github.com/gristlabs/grist-core/blob/main/LICENSE.txt",

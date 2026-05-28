@@ -1,7 +1,7 @@
 {
-  "name": "elephant-hand-codex-marketplace",
+  "name": "elephant-hand",
   "interface": {
-    "displayName": "Elephant Hand Codex Marketplace"
+    "displayName": "Elephant Hand"
   },
   "plugins": [
     {
