@@ -5,8 +5,10 @@ Shared Codex plugin marketplace for Elephant Hand.
 ## Contents
 
 - `plugins/grist`: the Grist plugin package
+- `plugins/forgejo`: the Forgejo plugin package
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
+- `plugins/forgejo/.env.example`: local environment template for Forgejo credentials
 
 ## Updating
 

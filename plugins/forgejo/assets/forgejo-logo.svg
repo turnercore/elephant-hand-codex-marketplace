@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Forgejo">
+  <defs>
+    <linearGradient id="forgejo-bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+    <linearGradient id="forgejo-node" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="url(#forgejo-bg)"/>
+  <path d="M68 72l58 116 62-116" fill="none" stroke="#ffedd5" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M128 188h54" fill="none" stroke="#ffedd5" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="62" cy="58" r="28" fill="url(#forgejo-node)"/>
+  <circle cx="194" cy="58" r="28" fill="url(#forgejo-node)"/>
+  <circle cx="128" cy="198" r="28" fill="url(#forgejo-node)"/>
+  <circle cx="62" cy="58" r="10" fill="#fff7ed"/>
+  <circle cx="194" cy="58" r="10" fill="#fff7ed"/>
+  <circle cx="128" cy="198" r="10" fill="#fff7ed"/>
+</svg>

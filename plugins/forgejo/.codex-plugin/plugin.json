@@ -1,0 +1,47 @@
+{
+  "name": "forgejo",
+  "version": "0.1.0+codex.20260601101500",
+  "description": "Work with the Elephant Hand Forgejo instance through MCP, fj, and the Forgejo API.",
+  "author": {
+    "name": "Turner Core",
+    "email": "me@turnercore.dev",
+    "url": "https://forge.elephanthand.com"
+  },
+  "homepage": "https://forgejo.org/docs/latest/user/api-usage/",
+  "repository": "https://code.squarecows.com/SquareCows/forgejo-mcp",
+  "license": "MIT",
+  "keywords": [
+    "forgejo",
+    "gitea",
+    "git",
+    "issues",
+    "pull-requests",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Forgejo",
+    "shortDescription": "Use Elephant Hand Forgejo from Codex.",
+    "longDescription": "Adds a pinned upstream Forgejo MCP server for repository, issue, pull-request, organization, user, and admin workflows, plus fj CLI guidance and a small REST fallback helper for direct API inspection.",
+    "developerName": "Turner Core",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive",
+      "MCP"
+    ],
+    "composerIcon": "./assets/forgejo-composer-icon.svg",
+    "logo": "./assets/forgejo-logo.svg",
+    "websiteURL": "https://forge.elephanthand.com",
+    "privacyPolicyURL": "https://forgejo.org/docs/latest/admin/privacy/",
+    "termsOfServiceURL": "https://codeberg.org/forgejo/forgejo/src/branch/forgejo/LICENSE",
+    "defaultPrompt": [
+      "List my Forgejo repositories.",
+      "Show open pull requests in this Forgejo repo.",
+      "Create a Forgejo issue for this bug."
+    ],
+    "brandColor": "#FB923C"
+  }
+}

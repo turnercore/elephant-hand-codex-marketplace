@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "forgejo": {
+      "command": "python3",
+      "args": [
+        "./scripts/run_forgejo_mcp.py"
+      ],
+      "note": "Starts the pinned latest @ric_/forgejo-mcp server after securely loading FORGEJO_URL and FORGEJO_TOKEN from the environment or plugin .env."
+    }
+  }
+}
