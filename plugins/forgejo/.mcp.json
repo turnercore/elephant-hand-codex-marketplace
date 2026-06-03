@@ -5,7 +5,7 @@
       "args": [
         "./scripts/run_forgejo_mcp.py"
       ],
-      "note": "Starts the pinned latest @ric_/forgejo-mcp server after securely loading FORGEJO_URL and FORGEJO_TOKEN from the environment or plugin .env."
+      "note": "Starts the pinned goern/forgejo-mcp server after securely loading FORGEJO_URL and FORGEJO_TOKEN or FORGEJO_ACCESS_TOKEN from the environment or plugin .env."
     }
   }
 }

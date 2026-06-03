@@ -1,14 +1,14 @@
 {
   "name": "forgejo",
-  "version": "0.1.0+codex.20260601101500",
-  "description": "Work with the Elephant Hand Forgejo instance through MCP, fj, and the Forgejo API.",
+  "version": "0.1.0+codex.20260603111853",
+  "description": "Work with the Elephant Hand Forgejo instance through goern/forgejo-mcp, fj, and the Forgejo API.",
   "author": {
     "name": "Turner Core",
     "email": "me@turnercore.dev",
     "url": "https://forge.elephanthand.com"
   },
-  "homepage": "https://forgejo.org/docs/latest/user/api-usage/",
-  "repository": "https://code.squarecows.com/SquareCows/forgejo-mcp",
+  "homepage": "https://codeberg.org/goern/forgejo-mcp",
+  "repository": "https://codeberg.org/goern/forgejo-mcp",
   "license": "MIT",
   "keywords": [
     "forgejo",
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "Forgejo",
     "shortDescription": "Use Elephant Hand Forgejo from Codex.",
-    "longDescription": "Adds a pinned upstream Forgejo MCP server for repository, issue, pull-request, organization, user, and admin workflows, plus fj CLI guidance and a small REST fallback helper for direct API inspection.",
+    "longDescription": "Adds a pinned upstream goern/forgejo-mcp server for repository, issue, pull-request, Actions workflow, organization, user, and release workflows, plus fj CLI guidance and a small REST fallback helper for direct API inspection.",
     "developerName": "Turner Core",
     "category": "Productivity",
     "capabilities": [

@@ -10,13 +10,14 @@ Use this skill for Forgejo work. Prefer registered Forgejo MCP tools when they a
 ## Required Inputs
 
 - `FORGEJO_URL`: Forgejo site root. Defaults to `https://forge.elephanthand.com` in local wrappers.
-- `FORGEJO_TOKEN`: Forgejo access token from `Settings | Applications`.
+- `FORGEJO_ACCESS_TOKEN`: Forgejo access token from `Settings | Applications`; preferred by `goern/forgejo-mcp`.
+- `FORGEJO_TOKEN`: Backward-compatible alias used by the local launcher and REST helper.
 
 Never print access tokens. A local plugin `.env` may be used, but it must stay untracked and have permissions `0600`.
 
 ## Tool Priority
 
-1. Use Forgejo MCP tools first when they are registered. They cover repositories, branches, file contents, issues, labels, milestones, pull requests, reviews, organizations, users, notifications, releases, and selected admin/system APIs.
+1. Use Forgejo MCP tools first when they are registered. They cover repositories, branches, file contents, issues, labels, milestones, pull requests, reviews, organizations, users, notifications, Actions workflows, releases, and branch protection.
 2. Use `fj` when the task benefits from local git context, cloning, PR checkout, command-line output, or matching the user's shell workflow.
 3. Use `scripts/forgejo_api.py` when MCP is unavailable, when debugging auth/base-url/TLS problems, or when the user asks for exact REST calls.
 4. Use `git` locally for clone/status/diff/commit workflows after repository URLs are known.
@@ -88,6 +89,26 @@ Useful endpoints:
 - `POST /api/v1/repos/{owner}/{repo}/issues/{index}/comments` comments on an issue or pull request.
 - `GET /api/v1/repos/{owner}/{repo}/pulls` lists pull requests.
 
+## MCP Tool Names
+
+The plugin launches the pinned `goern/forgejo-mcp` release. Common MCP tools include:
+
+- `get_my_user_info`
+- `list_my_repos`
+- `search_repos`
+- `list_repo_issues`
+- `get_issue_by_index`
+- `create_issue`
+- `list_repo_pull_requests`
+- `get_pull_request_by_index`
+- `create_pull_request`
+- `merge_pull_request`
+- `dispatch_workflow`
+- `list_workflow_runs`
+- `get_workflow_run`
+- `list_releases`
+- `get_forgejo_mcp_server_version`
+
 ## Helper Script
 
 This plugin includes `scripts/forgejo_api.py`, a small zero-dependency Python helper. It automatically loads plugin `.env` when present, while explicit environment variables still take priority. Use `--env-file PATH` to load another dotenv file.
@@ -114,7 +135,7 @@ Do not disable TLS verification in plugin code. During setup on 2026-06-01, loca
 ## Workflow
 
 1. Confirm the base URL and token source.
-2. Run a small read-only check first, usually MCP `get_authenticated_user`, `fj whoami`, or helper `user`.
+2. Run a small read-only check first, usually MCP `get_my_user_info`, `fj whoami`, or helper `user`.
 3. Inspect owner/repo names before writes.
 4. For issue, PR, file, branch, release, admin, and destructive writes, summarize the intended change before calling the tool unless the user gave an exact action.
 5. Verify writes with a follow-up read from the relevant endpoint, MCP read tool, or `fj` command.
@@ -131,13 +152,9 @@ Do not disable TLS verification in plugin code. During setup on 2026-06-01, loca
 
 Default MCP server:
 
-- Package: `@ric_/forgejo-mcp@0.1.5`
-- Upstream repository: `https://code.squarecows.com/SquareCows/forgejo-mcp`
-
-Reviewed future alternative:
-
-- `https://github.com/goern/forgejo-mcp`
-- Use later if Elephant Hand wants a Go binary/container MCP runner instead of the npm-published MCP package.
+- Package/release: `goern/forgejo-mcp v2.28.0`
+- Upstream repository: `https://codeberg.org/goern/forgejo-mcp`
+- Launcher: `scripts/run_forgejo_mcp.py` downloads the pinned release archive, verifies it against upstream checksums, maps `FORGEJO_TOKEN` to `FORGEJO_ACCESS_TOKEN` when needed, and starts stdio transport.
 
 Official docs:
 
