@@ -1,6 +1,6 @@
 {
   "name": "reposcout",
-  "version": "0.1.0",
+  "version": "0.1.0+codex.20260622095030",
   "description": "Expose RepoScout as a read-only repository context MCP server.",
   "author": {
     "name": "Turner Core",
@@ -17,6 +17,7 @@
     "context",
     "codex"
   ],
+  "skills": "./skills/",
   "interface": {
     "displayName": "RepoScout",
     "shortDescription": "Find relevant repo files before broad search.",
@@ -29,6 +30,8 @@
       "MCP"
     ],
     "websiteURL": "https://forge.elephanthand.com/turnercore/reposcout",
+    "privacyPolicyURL": "https://forge.elephanthand.com/turnercore/reposcout",
+    "termsOfServiceURL": "https://forge.elephanthand.com/turnercore/reposcout",
     "defaultPrompt": [
       "Use RepoScout to find the files for this bug.",
       "Ask RepoScout for relevant context before searching.",
