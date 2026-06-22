@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "reposcout": {
+      "command": "bash",
+      "args": [
+        "./scripts/run_reposcout_mcp.sh"
+      ],
+      "note": "Starts the Dockerized RepoScout MCP server and mounts the current Codex workspace read-only as /workspace."
+    }
+  }
+}
