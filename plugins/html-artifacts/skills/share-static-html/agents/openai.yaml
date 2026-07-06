@@ -1,0 +1,4 @@
+interface:
+  display_name: "Share Static HTML"
+  short_description: "Serve HTML reports on Tailscale"
+  default_prompt: "Serve this HTML artifact on Tailscale and give me the link."

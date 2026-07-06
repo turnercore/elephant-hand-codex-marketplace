@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML Artifact Designer"
+  short_description: "Design polished static HTML artifacts"
+  default_prompt: "Use $html-artifact-designer to create a polished benchmark report and serve it with $share-static-html."

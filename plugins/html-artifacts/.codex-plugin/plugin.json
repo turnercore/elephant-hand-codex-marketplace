@@ -1,0 +1,42 @@
+{
+  "name": "html-artifacts",
+  "version": "0.1.0",
+  "description": "Create polished static HTML artifacts and serve them over the local Tailscale network.",
+  "author": {
+    "name": "Turner Core",
+    "email": "me@turnercore.dev",
+    "url": "https://forge.elephanthand.com"
+  },
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "html",
+    "reports",
+    "artifacts",
+    "tailscale",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "HTML Artifacts",
+    "shortDescription": "Author and share static HTML reports.",
+    "longDescription": "Adds Elephant Hand's HTML artifact designer and static HTML sharing skills for benchmark reports, comparison pages, plans, option galleries, workbenches, and short-lived local HTML artifacts served on localhost and Tailscale.",
+    "developerName": "Turner Core",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "privacyPolicyURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "termsOfServiceURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "defaultPrompt": [
+      "Create a readable HTML benchmark report and serve it to me.",
+      "Turn this plan into a polished static HTML artifact.",
+      "Make an HTML option gallery for these UI directions."
+    ],
+    "brandColor": "#B33A2E"
+  }
+}

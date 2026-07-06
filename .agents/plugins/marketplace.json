@@ -17,6 +17,18 @@
       "category": "Productivity"
     },
     {
+      "name": "html-artifacts",
+      "source": {
+        "source": "local",
+        "path": "./plugins/html-artifacts"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Productivity"
+    },
+    {
       "name": "forgejo",
       "source": {
         "source": "local",
