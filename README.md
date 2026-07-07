@@ -11,6 +11,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
 - `plugins/forgejo/.env.example`: local environment template for Forgejo credentials
+- `PUBLISH-CODEX.md`: install, upgrade, and release instructions for Codex
 
 ## Attribution
 
@@ -22,4 +23,19 @@ Original work copyright (c) 2026 Matt Pocock, licensed under the MIT License.
 
 ## Updating
 
-After changing a plugin, update its cachebuster and reinstall it in Codex from this marketplace.
+Add this marketplace to Codex as a Git marketplace, not as a local path:
+
+```sh
+codex plugin marketplace add \
+  ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/elephant-hand-codex-marketplace.git \
+  --ref main
+```
+
+After changing a plugin, update its version, push to `main`, and refresh Codex:
+
+```sh
+codex plugin marketplace upgrade elephant-hand-codex-marketplace
+```
+
+See [PUBLISH-CODEX.md](PUBLISH-CODEX.md) for the full install, upgrade, and
+release checklist.
