@@ -7,6 +7,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/grist`: the Grist plugin package
 - `plugins/forgejo`: the Forgejo plugin package
 - `plugins/mattpocock-skills`: selected skill package
+- `plugins/mattpocock-skills/docs`: matching upstream docs for the selected skills
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
 - `plugins/forgejo/.env.example`: local environment template for Forgejo credentials
