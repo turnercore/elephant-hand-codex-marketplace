@@ -1,4 +1,5 @@
 .DS_Store
+.codex-marketplace-install.json
 plugins/**/.env
 plugins/**/.cache/
 plugins/**/__pycache__/
