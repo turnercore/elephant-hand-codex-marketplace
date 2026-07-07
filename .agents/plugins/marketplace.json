@@ -29,6 +29,18 @@
       "category": "Productivity"
     },
     {
+      "name": "mattpocock-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/mattpocock-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Productivity"
+    },
+    {
       "name": "forgejo",
       "source": {
         "source": "local",

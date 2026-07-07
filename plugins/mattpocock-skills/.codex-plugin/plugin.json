@@ -1,0 +1,39 @@
+{
+  "name": "mattpocock-skills",
+  "version": "0.1.0",
+  "description": "Selected skills for grilling plans, domain modeling, and writing better skills.",
+  "author": {
+    "name": "Elephant Hand Games",
+    "url": "https://forge.elephanthand.com"
+  },
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "planning",
+    "domain-modeling",
+    "grilling"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Matt Pocock Skills",
+    "shortDescription": "Grill plans, model domains, and improve skill writing.",
+    "longDescription": "Adds writing-great-skills, grill-with-docs, grill-me, grilling, and domain-modeling.",
+    "developerName": "Elephant Hand Games",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/mattpocock/skills",
+    "privacyPolicyURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "termsOfServiceURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "defaultPrompt": [
+      "Use grill-me to stress-test this plan.",
+      "Use grill-with-docs to sharpen this design and record the domain model.",
+      "Use writing-great-skills to review this skill."
+    ],
+    "brandColor": "#B33A2E"
+  }
+}
