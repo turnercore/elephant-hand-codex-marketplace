@@ -35,8 +35,7 @@
         "path": "./plugins/mattpocock-skills"
       },
       "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "NONE"
+        "installation": "AVAILABLE"
       },
       "category": "Productivity"
     },
