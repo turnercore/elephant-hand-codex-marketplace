@@ -10,6 +10,7 @@ Shared Codex plugin marketplace for Elephant Hand.
   [`mattpocock/skills` integration fork](https://forge.elephanthand.com/Elephant-Hand-Games/mattpocock-skills/src/branch/elephant-hand)
 - `improve`: Git-backed plugin sourced from [`shadcn/improve`](https://github.com/shadcn/improve)
 - `ponytail`: Git-backed plugin sourced from [`DietrichGebert/ponytail`](https://github.com/DietrichGebert/ponytail)
+- `brooks-lint`: Git-backed plugin sourced from [`hyhmrright/brooks-lint`](https://github.com/hyhmrright/brooks-lint)
 - `dox`: repo-owned DOX plugin with automatic AGENTS.md hierarchy adoption
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
