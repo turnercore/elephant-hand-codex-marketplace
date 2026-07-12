@@ -8,6 +8,8 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/forgejo`: the Forgejo plugin package
 - `plugins/mattpocock-skills`: selected skill package
 - `plugins/mattpocock-skills/docs`: matching upstream docs for the selected skills
+- `improve`: Git-backed plugin sourced from [`shadcn/improve`](https://github.com/shadcn/improve)
+- `ponytail`: Git-backed plugin sourced from [`DietrichGebert/ponytail`](https://github.com/DietrichGebert/ponytail)
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
 - `plugins/forgejo/.env.example`: local environment template for Forgejo credentials
@@ -34,7 +36,7 @@ codex plugin marketplace add \
 After changing a plugin, update its version, push to `main`, and refresh Codex:
 
 ```sh
-codex plugin marketplace upgrade elephant-hand-codex-marketplace
+codex plugin marketplace upgrade elephant-hand
 ```
 
 See [PUBLISH-CODEX.md](PUBLISH-CODEX.md) for the full install, upgrade, and

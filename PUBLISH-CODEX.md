@@ -23,11 +23,13 @@ After adding the marketplace, open the Codex plugin directory and install the
 plugins you want, or install from the CLI:
 
 ```sh
-codex plugin add grist@elephant-hand-codex-marketplace
-codex plugin add forgejo@elephant-hand-codex-marketplace
-codex plugin add reposcout@elephant-hand-codex-marketplace
-codex plugin add html-artifacts@elephant-hand-codex-marketplace
-codex plugin add mattpocock-skills@elephant-hand-codex-marketplace
+codex plugin add grist@elephant-hand
+codex plugin add forgejo@elephant-hand
+codex plugin add reposcout@elephant-hand
+codex plugin add html-artifacts@elephant-hand
+codex plugin add mattpocock-skills@elephant-hand
+codex plugin add improve@elephant-hand
+codex plugin add ponytail@elephant-hand
 ```
 
 ## Upgrade
@@ -35,7 +37,7 @@ codex plugin add mattpocock-skills@elephant-hand-codex-marketplace
 Because the marketplace is Git-backed, Codex can refresh it with:
 
 ```sh
-codex plugin marketplace upgrade elephant-hand-codex-marketplace
+codex plugin marketplace upgrade elephant-hand
 ```
 
 If `upgrade` reports that the marketplace is not configured as a Git
@@ -55,7 +57,7 @@ The marketplace manifest lives at `.agents/plugins/marketplace.json`.
 Use the top-level `name` as the stable marketplace identifier:
 
 ```json
-"name": "elephant-hand-codex-marketplace"
+"name": "elephant-hand"
 ```
 
 Use `interface.displayName` for the marketplace title shown in Codex:
@@ -126,7 +128,7 @@ Before pushing marketplace changes:
 After pushing:
 
 ```sh
-codex plugin marketplace upgrade elephant-hand-codex-marketplace
+codex plugin marketplace upgrade elephant-hand
 ```
 
 Restart Codex or open a new Codex thread after installing/upgrading plugins so
