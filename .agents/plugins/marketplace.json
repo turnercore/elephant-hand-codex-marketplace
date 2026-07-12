@@ -68,6 +68,18 @@
       "category": "Developer Tools"
     },
     {
+      "name": "dox",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dox"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
       "name": "forgejo",
       "source": {
         "source": "local",

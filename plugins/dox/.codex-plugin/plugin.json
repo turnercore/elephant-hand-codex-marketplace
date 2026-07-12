@@ -1,0 +1,29 @@
+{
+  "name": "dox",
+  "version": "0.2.0",
+  "description": "Install and maintain DOX automatically for repository edits unless applicable instructions opt out.",
+  "author": {
+    "name": "Agent Zero / Elephant Hand",
+    "url": "https://github.com/agent0ai/dox"
+  },
+  "homepage": "https://github.com/agent0ai/dox",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": ["agents-md", "documentation", "repository", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "DOX",
+    "shortDescription": "Keep repository AGENTS.md hierarchies current.",
+    "longDescription": "Packages Elephant Hand.s self-contained DOX skill, inspired by agent0ai/dox for initializing, repairing, and maintaining scoped repository instruction hierarchies.",
+    "developerName": "Agent Zero / Elephant Hand",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write", "Interactive"],
+    "websiteURL": "https://github.com/agent0ai/dox",
+    "defaultPrompt": [
+      "Initialize DOX for this repository.",
+      "Repair this repository's AGENTS.md hierarchy.",
+      "Update DOX after these structural changes."
+    ],
+    "brandColor": "#111827"
+  }
+}

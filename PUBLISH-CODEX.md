@@ -31,6 +31,7 @@ codex plugin add html-artifacts@elephant-hand
 codex plugin add mattpocock-skills@elephant-hand
 codex plugin add improve@elephant-hand
 codex plugin add ponytail@elephant-hand
+codex plugin add dox@elephant-hand
 ```
 
 ## Upgrade
