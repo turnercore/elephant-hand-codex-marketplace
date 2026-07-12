@@ -31,8 +31,9 @@
     {
       "name": "mattpocock-skills",
       "source": {
-        "source": "local",
-        "path": "./plugins/mattpocock-skills"
+        "source": "url",
+        "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/mattpocock-skills.git",
+        "ref": "elephant-hand"
       },
       "policy": {
         "installation": "AVAILABLE",

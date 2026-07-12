@@ -6,8 +6,8 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 - `plugins/grist`: the Grist plugin package
 - `plugins/forgejo`: the Forgejo plugin package
-- `plugins/mattpocock-skills`: selected skill package
-- `plugins/mattpocock-skills/docs`: matching upstream docs for the selected skills
+- `mattpocock-skills`: Git-backed plugin sourced from Elephant Hand's
+  [`mattpocock/skills` integration fork](https://forge.elephanthand.com/Elephant-Hand-Games/mattpocock-skills/src/branch/elephant-hand)
 - `improve`: Git-backed plugin sourced from [`shadcn/improve`](https://github.com/shadcn/improve)
 - `ponytail`: Git-backed plugin sourced from [`DietrichGebert/ponytail`](https://github.com/DietrichGebert/ponytail)
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
@@ -17,11 +17,39 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 ## Attribution
 
-`plugins/mattpocock-skills/skills/` includes selected skills from
-[`mattpocock/skills`](https://github.com/mattpocock/skills), copied from commit
-`16a2a5cd00b4416f673f4ff38c7971a04dd708e7`.
+The `mattpocock-skills` plugin tracks the `elephant-hand` branch of
+`Elephant-Hand-Games/mattpocock-skills`. That repository preserves upstream
+history from [`mattpocock/skills`](https://github.com/mattpocock/skills) on
+`main`; Elephant Hand-specific Codex metadata lives on `elephant-hand`.
 
 Original work copyright (c) 2026 Matt Pocock, licensed under the MIT License.
+
+## Updating Matt Pocock Skills
+
+Clone the Elephant Hand fork and keep both remotes:
+
+```sh
+git clone ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/mattpocock-skills.git
+cd mattpocock-skills
+git remote add upstream https://github.com/mattpocock/skills.git
+```
+
+Refresh the untouched `main` branch, then explicitly merge the chosen upstream
+state into the installable `elephant-hand` branch:
+
+```sh
+git fetch upstream
+git switch main
+git merge --ff-only upstream/main
+git push origin main
+git switch elephant-hand
+git merge main
+git push origin elephant-hand
+```
+
+Resolve or decline that last merge like any normal integration change. Codex
+only receives changes after they land on `elephant-hand` and this marketplace
+is upgraded.
 
 ## Updating
 

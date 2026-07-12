@@ -3,8 +3,9 @@
 This repository is the Elephant Hand Codex plugin marketplace.
 
 Codex expects the marketplace manifest at `.agents/plugins/marketplace.json`.
-Each entry in that file points at a plugin bundle under `plugins/<plugin-name>`.
-Each plugin bundle must include `.codex-plugin/plugin.json`.
+Entries either point at a local plugin bundle under `plugins/<plugin-name>` or
+at a Git-backed upstream/integration repository. `mattpocock-skills`, `improve`,
+and `ponytail` use the Git-backed model.
 
 ## Install
 
