@@ -1,6 +1,6 @@
 {
   "name": "dox",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Install and maintain DOX automatically for repository edits unless applicable instructions opt out.",
   "author": {
     "name": "Agent Zero / Elephant Hand",
@@ -14,7 +14,7 @@
   "interface": {
     "displayName": "DOX",
     "shortDescription": "Keep repository AGENTS.md hierarchies current.",
-    "longDescription": "Packages Elephant Hand.s self-contained DOX skill, inspired by agent0ai/dox for initializing, repairing, and maintaining scoped repository instruction hierarchies.",
+    "longDescription": "Packages Elephant Hand's self-contained DOX skill and validator, inspired by agent0ai/dox for initializing, repairing, and maintaining scoped repository instruction hierarchies.",
     "developerName": "Agent Zero / Elephant Hand",
     "category": "Developer Tools",
     "capabilities": ["Read", "Write", "Interactive"],

@@ -26,6 +26,7 @@ Keep repository instructions current through a root `AGENTS.md` contract and sco
 4. Create child `AGENTS.md` files only for durable boundaries with distinct purpose, ownership, contracts, workflow, or verification.
 5. Keep the first hierarchy broad and shallow. Add deeper children only when their rules differ materially from their parent.
 6. Never replace existing repository instructions wholesale with the DOX contract.
+7. Keep initialization idempotent: rerunning it must not duplicate rules, sections, or index entries.
 
 Use this section order for child files:
 
@@ -35,6 +36,8 @@ Use this section order for child files:
 - Work Guidance
 - Verification
 - Child DOX Index
+
+Write each direct child as a relative Markdown link, for example `- [src](src/AGENTS.md)`. Use `None` when there are no child contracts.
 
 Leave `Work Guidance` or `Verification` empty when no repository evidence supports content. Do not invent commands, owners, or policies.
 
@@ -57,5 +60,6 @@ Small implementation edits that do not change durable behavior or contracts requ
 1. Re-check every changed path against its complete DOX chain.
 2. Refresh affected Child DOX Index entries.
 3. Remove stale or contradictory text.
-4. Run the smallest existing validation relevant to the changed docs or structure.
-5. Report whether DOX was initialized, updated, already current, or explicitly skipped due to opt-out/read-only scope.
+4. Run `python3 <this-skill-directory>/scripts/validate_dox.py <repo-root>`. Repair reported hierarchy errors, then rerun it.
+5. Run any additional repository validation relevant to changed docs or structure.
+6. Report whether DOX was initialized, updated, already current, or explicitly skipped due to opt-out/read-only scope.
