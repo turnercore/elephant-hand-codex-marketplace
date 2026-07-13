@@ -58,7 +58,7 @@
       "name": "ponytail",
       "source": {
         "source": "url",
-        "url": "https://github.com/DietrichGebert/ponytail.git",
+        "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/ponytail.git",
         "ref": "main"
       },
       "policy": {
