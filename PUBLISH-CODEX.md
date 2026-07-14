@@ -3,10 +3,9 @@
 This repository is the Elephant Hand Codex plugin marketplace.
 
 Codex expects the marketplace manifest at `.agents/plugins/marketplace.json`.
-Entries either point at a local plugin bundle under `plugins/<plugin-name>` or
-at a Git-backed upstream/integration repository. `mattpocock-skills` remains
-Git-backed. Reviewing vendors the customized Ponytail and Brooks skills plus
-Improve and Fable Review so all review workflows share one toggle.
+Entries point at local plugin bundles under `plugins/<plugin-name>`. Selected
+Matt Pocock skills are vendored into Planning and Coding, with `code-review`
+in Reviewing, so Elephant Hand can maintain each workflow independently.
 
 ## Install
 
@@ -29,7 +28,9 @@ codex plugin add godot@elephant-hand
 codex plugin add productivity@elephant-hand
 codex plugin add reporting@elephant-hand
 codex plugin add reviewing@elephant-hand
-codex plugin add mattpocock-skills@elephant-hand
+codex plugin add teaching@elephant-hand
+codex plugin add coding@elephant-hand
+codex plugin add planning@elephant-hand
 codex plugin add grist@elephant-hand
 codex plugin add forgejo@elephant-hand
 codex plugin add dox@elephant-hand
@@ -48,7 +49,7 @@ If `upgrade` reports that the marketplace is not configured as a Git
 marketplace, remove the stale local-path registration and add the SSH URL again:
 
 ```sh
-codex plugin marketplace remove elephant-hand-codex-marketplace
+codex plugin marketplace remove elephant-hand
 codex plugin marketplace add \
   ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/elephant-hand-codex-marketplace.git \
   --ref main

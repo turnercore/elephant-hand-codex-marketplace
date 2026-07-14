@@ -1,0 +1,38 @@
+{
+  "name": "coding",
+  "version": "0.1.0",
+  "description": "Implement, test, and prototype code with focused workflows.",
+  "author": {
+    "name": "Matt Pocock and Elephant Hand",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+  },
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "coding",
+    "implementation",
+    "tdd",
+    "prototype"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Coding",
+    "shortDescription": "Implementation, TDD, and prototyping.",
+    "longDescription": "Focused coding workflows for implementing approved work, developing in test-first slices, and building throwaway prototypes that answer design questions.",
+    "developerName": "Matt Pocock / Elephant Hand",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "defaultPrompt": [
+      "Implement this approved specification.",
+      "Build this change test-first.",
+      "Prototype this design question."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

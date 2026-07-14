@@ -1,7 +1,6 @@
 ---
 name: ponytail
 description: used for reviews to determine over engineering
-license: MIT
 ---
 
 # Ponytail

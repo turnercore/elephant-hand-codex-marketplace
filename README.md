@@ -7,13 +7,14 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/godot`: Godot headless testing
 - `plugins/productivity`: assistant file workflows, currently PDF and Paperless-ngx
 - `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
-- `plugins/reviewing`: Ponytail, Brooks Lint, Improve, and Fable review workflows
-- `mattpocock-skills`: standalone Git-backed plugin sourced from Elephant Hand's
-  [`mattpocock/skills` integration fork](https://forge.elephanthand.com/Elephant-Hand-Games/mattpocock-skills/src/branch/elephant-hand)
+- `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
+- `plugins/teaching`: reserved for Elephant Hand teaching skills
+- `plugins/coding`: implementation, test-driven development, and prototyping
+- `plugins/planning`: grilling, domain modeling, handoffs, specs, tickets, and wayfinding
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
-- `dox`: repo-owned DOX plugin with automatic AGENTS.md hierarchy adoption
-- `reposcout`: standalone repository context tool
+- `plugins/dox`: repo-owned DOX plugin with automatic AGENTS.md hierarchy adoption
+- `plugins/reposcout`: standalone repository context tool
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
 - `plugins/forgejo/.env.example`: local environment template for Forgejo credentials
@@ -21,19 +22,18 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 ## Attribution
 
-The `mattpocock-skills` plugin tracks the `elephant-hand` branch of
-`Elephant-Hand-Games/mattpocock-skills`. That repository preserves upstream
-history from [`mattpocock/skills`](https://github.com/mattpocock/skills) on
-`main`; Elephant Hand-specific Codex metadata lives on `elephant-hand`.
-
-Original work copyright (c) 2026 Matt Pocock, licensed under the MIT License.
+Coding and Planning, plus `code-review` in Reviewing, vendor selected work from
+[`mattpocock/skills`](https://github.com/mattpocock/skills). Original work
+copyright (c) 2026 Matt Pocock, licensed under the MIT License. Each bundle
+includes the upstream license and can now evolve independently inside this
+marketplace.
 
 The Reviewing bundle vendors skills from the Elephant Hand Ponytail and Brooks
 Lint integration branches, plus Improve and Fable Review. Each retains its
 upstream authorship and license. Ponytail remains hook-free in Codex and both
 Ponytail and Brooks retain their terse model-visible descriptions.
 
-## Updating Matt Pocock Skills
+## Updating Vendored Matt Pocock Skills
 
 Clone the Elephant Hand fork and keep both remotes:
 
@@ -43,22 +43,28 @@ cd mattpocock-skills
 git remote add upstream https://github.com/mattpocock/skills.git
 ```
 
-Refresh the untouched `main` branch, then explicitly merge the chosen upstream
-state into the installable `elephant-hand` branch:
+Refresh the untouched `main` branch, then compare the selected source skills
+against the copies in this marketplace:
 
 ```sh
 git fetch upstream
 git switch main
 git merge --ff-only upstream/main
 git push origin main
-git switch elephant-hand
-git merge main
-git push origin elephant-hand
 ```
 
-Resolve or decline that last merge like any normal integration change. Codex
-only receives changes after they land on `elephant-hand` and this marketplace
-is upgraded.
+Do not merge the full plugin into this marketplace. Port only the retained
+skills deliberately, preserve the short Codex descriptions and local
+adaptations, validate the affected bundles, and bump their versions. The
+retained set is:
+
+- Planning: `grill-with-docs`, `grilling`, `grill-me`, `domain-modeling`,
+  `handoff`, `to-spec`, `to-tickets`, and `wayfinder`
+- Coding: `implement`, `tdd`, and `prototype`
+- Reviewing: `code-review`
+
+All other Matt Pocock skills are intentionally excluded. Teaching remains
+empty until Elephant Hand's teaching skill is added.
 
 ## Updating Reviewing Sources
 

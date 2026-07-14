@@ -1,10 +1,6 @@
 ---
 name: improve
 description: Audit codebases and write prioritized implementation plans.
-license: MIT
-metadata:
-  author: shadcn
-  version: "1.0.0"
 ---
 
 # Improve

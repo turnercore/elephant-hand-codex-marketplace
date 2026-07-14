@@ -1,0 +1,35 @@
+{
+  "name": "teaching",
+  "version": "0.1.0",
+  "description": "Add Elephant Hand teaching workflows to Codex.",
+  "author": {
+    "name": "Turner Core / Elephant Hand",
+    "email": "me@turnercore.dev",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+  },
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "teaching",
+    "learning",
+    "education"
+  ],
+  "interface": {
+    "displayName": "Teaching",
+    "shortDescription": "Teaching and guided learning workflows.",
+    "longDescription": "A home for Elephant Hand skills that teach concepts and guide structured learning. Skills will be added separately.",
+    "developerName": "Turner Core / Elephant Hand",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "defaultPrompt": [
+      "Teach me this concept step by step."
+    ],
+    "brandColor": "#C17B2F"
+  }
+}
