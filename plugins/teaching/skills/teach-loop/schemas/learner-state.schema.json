@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://teach-loop.local/schemas/learner-state.schema.json",
+  "title": "Teach Loop learner state",
+  "type": "object",
+  "required": ["schemaVersion", "updatedAt", "learnerDeclared", "observations", "inferences", "concepts"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" },
+    "learnerDeclared": { "type": "array", "items": { "$ref": "#/$defs/evidenceItem" } },
+    "observations": { "type": "array", "items": { "$ref": "#/$defs/evidenceItem" } },
+    "inferences": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/evidenceItem" },
+          {
+            "type": "object",
+            "required": ["confidence"],
+            "properties": { "confidence": { "type": "number", "minimum": 0, "maximum": 1 } }
+          }
+        ]
+      }
+    },
+    "concepts": { "type": "array", "items": { "type": "object" } }
+  },
+  "$defs": {
+    "evidenceItem": {
+      "type": "object",
+      "required": ["id", "claim", "recordedAt"],
+      "properties": {
+        "id": { "type": "string" },
+        "claim": { "type": "string" },
+        "recordedAt": { "type": "string", "format": "date-time" },
+        "evidenceIds": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

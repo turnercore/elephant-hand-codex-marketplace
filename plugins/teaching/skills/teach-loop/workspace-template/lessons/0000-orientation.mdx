@@ -1,0 +1,86 @@
+import {
+  Callout,
+  Checkpoint,
+  ConceptTooltip,
+  LessonSection,
+  MultipleChoice,
+  PredictionPrompt,
+  ReflectionPrompt,
+} from "@/lesson-kit";
+import { defineLesson } from "@/course/define-lesson";
+
+export const lesson = defineLesson({
+  id: "0000-orientation",
+  title: "Set the tutor's compass",
+  summary: "A short orientation that gives your tutor concrete goals, prior knowledge, and evidence about how to shape the first real lesson.",
+  estimatedMinutes: 8,
+  milestoneIds: ["mission"],
+  outcomes: ["Describe one tangible learning outcome and the first uncertainty worth investigating."],
+  targetGap: "The tutor does not yet know the learner's mission, prior model, or useful starting difficulty.",
+  successEvidence: ["The learner gives a concrete outcome, current model, constraints, and an open question."],
+  sourceIds: [],
+  lessonType: "orientation",
+  researchExemption: "This lesson collects the learner's own goals, constraints, and prior model; it makes no external subject-matter claims.",
+  theme: { preset: "course" },
+});
+
+<Callout title="This is not a placement exam" kind="insight">
+  The goal is to give your tutor a useful first map. Uncertainty is excellent information. Use the note buttons whenever a thought appears that does not fit the prompt in front of you.
+</Callout>
+
+<LessonSection id="mission" title="Name the change you want" eyebrow="Mission">
+  A strong mission points to something you want to make, decide, perceive, explain, or do. “Understand the topic” is usually too foggy to steer a tutor.
+
+  <PredictionPrompt
+    id="mission-outcome-prediction"
+    prompt="Imagine this learning worked unusually well. What would you be able to do, make, or understand that you cannot reliably do now?"
+    placeholder="A concrete outcome, project, decision, performance, or change…"
+    confidence={false}
+  />
+</LessonSection>
+
+<LessonSection id="starting-point" title="Show the tutor your current model" eyebrow="Light diagnosis">
+  Choose the description closest to your current relationship with the subject. This does not lock you into a level.
+
+  <MultipleChoice
+    id="current-relationship"
+    prompt="Where are you starting?"
+    options={[
+      { id: "new", label: "Mostly new: I need a useful first mental model." },
+      { id: "fragmented", label: "I know fragments, but they do not connect yet." },
+      { id: "procedural", label: "I can follow examples, but I struggle to work independently." },
+      { id: "transfer", label: "I know the basics and want to apply them flexibly in real work." },
+    ]}
+  />
+
+  <Checkpoint
+    id="current-model"
+    prompt="Without looking anything up, explain what you currently think the subject is really about. Include anything you suspect you may be misunderstanding."
+    hints={[
+      "Describe one important object, process, or relationship in the subject.",
+      "Name a term you have heard but do not yet trust yourself to use.",
+      "Say what tends to happen when you try to apply the subject in practice.",
+    ]}
+  />
+</LessonSection>
+
+<LessonSection id="constraints" title="Design for the real learner" eyebrow="Fit">
+  Your tutor can adapt pacing, examples, visual density, practice style, and the shape of the next lesson. A preference is a starting hypothesis, not a permanent <ConceptTooltip term="learning-style label">a fixed label that makes a flexible preference look like a permanent identity</ConceptTooltip>.
+
+  <Checkpoint
+    id="constraints-and-preferences"
+    prompt="What constraints, tools, examples, access needs, or teaching approaches should the tutor know about? What has helped or annoyed you in the past?"
+    hints={[
+      "Consider available time, deadlines, software, equipment, or budget.",
+      "Mention whether examples from your own projects would help.",
+      "Include readability, motion, audio, caption, input, or attention needs when relevant.",
+    ]}
+  />
+</LessonSection>
+
+<LessonSection id="first-question" title="Give the tutor a thread to pull" eyebrow="Next action">
+  <ReflectionPrompt
+    id="first-open-question"
+    prompt="What is the first question, confusion, or small capability you would most like the tutor to investigate with you?"
+  />
+</LessonSection>

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "1.0.0",
+  "teachLoopVersion": "__TEACH_LOOP_VERSION__",
+  "courseId": "__COURSE_SLUG__",
+  "courseTitle": "__COURSE_TITLE__",
+  "createdAt": "__CREATED_DATE__"
+}

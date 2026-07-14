@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --font-sans: var(--font-body);
+  --radius-sm: calc(var(--radius) - 0.3rem);
+  --radius-md: calc(var(--radius) - 0.15rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+}
+
+:root {
+  --background: oklch(0.985 0.004 285);
+  --foreground: oklch(0.19 0.025 285);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.025 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.025 285);
+  --primary: oklch(0.53 0.22 285);
+  --primary-foreground: oklch(0.99 0.01 285);
+  --secondary: oklch(0.94 0.018 285);
+  --secondary-foreground: oklch(0.26 0.04 285);
+  --muted: oklch(0.95 0.01 285);
+  --muted-foreground: oklch(0.5 0.03 285);
+  --accent: oklch(0.93 0.04 285);
+  --accent-foreground: oklch(0.28 0.08 285);
+  --destructive: oklch(0.58 0.23 28);
+  --border: oklch(0.89 0.018 285);
+  --input: oklch(0.89 0.018 285);
+  --ring: oklch(0.59 0.18 285);
+  --chart-1: oklch(0.58 0.2 285);
+  --chart-2: oklch(0.62 0.16 220);
+  --chart-3: oklch(0.66 0.16 150);
+  --chart-4: oklch(0.7 0.16 75);
+  --chart-5: oklch(0.63 0.2 25);
+  --radius: 0.8rem;
+  --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --reading-width: 48rem;
+  --type-scale: 1;
+  --scene-background: #f2f4f8;
+}
+
+.dark {
+  --scene-background: #101721;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: calc(16px * var(--type-scale));
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a,
+select,
+input[type="range"],
+input[type="color"] {
+  touch-action: manipulation;
+}
+
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--primary) 28%, transparent);
+}
+
+.lesson-section {
+  margin-block: 3.5rem;
+}
+
+.lesson-prose {
+  color: color-mix(in oklab, var(--foreground) 94%, transparent);
+}
+
+.lesson-prose > :first-child {
+  margin-top: 0;
+}
+
+.lesson-prose > :last-child {
+  margin-bottom: 0;
+}
+
+.lesson-prose p {
+  line-height: 1.75;
+}
+
+.lesson-prose ul,
+.lesson-prose ol {
+  margin-block: 0.9rem;
+  padding-left: 1.35rem;
+}
+
+.lesson-prose li + li {
+  margin-top: 0.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header,
+  aside,
+  button,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  article {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+}

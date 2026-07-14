@@ -1,9 +1,9 @@
 {
   "name": "teaching",
-  "version": "0.1.0",
-  "description": "Add Elephant Hand teaching workflows to Codex.",
+  "version": "0.2.0",
+  "description": "Run adaptive, research-backed private tutoring workflows.",
   "author": {
-    "name": "Turner Core / Elephant Hand",
+    "name": "Turner Monroe / Elephant Hand",
     "email": "me@turnercore.dev",
     "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
   },
@@ -12,14 +12,17 @@
   "license": "MIT",
   "keywords": [
     "teaching",
+    "teach-loop",
     "learning",
-    "education"
+    "education",
+    "interactive-lessons"
   ],
+  "skills": "./skills/",
   "interface": {
     "displayName": "Teaching",
-    "shortDescription": "Teaching and guided learning workflows.",
-    "longDescription": "A home for Elephant Hand skills that teach concepts and guide structured learning. Skills will be added separately.",
-    "developerName": "Turner Core / Elephant Hand",
+    "shortDescription": "Adaptive private tutoring with Teach Loop.",
+    "longDescription": "Teach Loop creates durable local learning workspaces with researched lessons, interactive exercises, learner evidence, and adaptive follow-up.",
+    "developerName": "Turner Monroe / Elephant Hand",
     "category": "Productivity",
     "capabilities": [
       "Read",
@@ -28,7 +31,9 @@
     ],
     "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
     "defaultPrompt": [
-      "Teach me this concept step by step."
+      "Help me start learning a new subject.",
+      "Create the next interactive lesson for me.",
+      "Review my lesson return and adapt the plan."
     ],
     "brandColor": "#C17B2F"
   }

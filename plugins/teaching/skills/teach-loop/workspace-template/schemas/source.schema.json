@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://teach-loop.local/schemas/source.schema.json",
+  "title": "Teach Loop source",
+  "type": "object",
+  "required": ["id", "title", "url", "type", "role", "supports", "qualityNotes"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "creator": { "type": "string" },
+    "organization": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "type": { "type": "string" },
+    "role": { "enum": ["primary", "official", "research", "textbook", "explanation", "example", "video", "community", "other"] },
+    "publishedAt": { "type": "string" },
+    "accessedAt": { "type": "string", "format": "date" },
+    "relevantSections": { "type": "array", "items": { "type": "string" } },
+    "supports": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "qualityNotes": { "type": "string", "minLength": 1 },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

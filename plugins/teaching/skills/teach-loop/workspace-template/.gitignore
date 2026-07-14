@@ -1,0 +1,11 @@
+node_modules/
+dist/
+built-lessons/*.html
+playwright-report/
+test-results/
+coverage/
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example

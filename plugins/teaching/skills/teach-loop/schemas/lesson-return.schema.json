@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://teach-loop.local/schemas/lesson-return.schema.json",
+  "title": "Teach Loop lesson return",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "course",
+    "lesson",
+    "generatedAt",
+    "responses",
+    "notes",
+    "events",
+    "completedIds",
+    "reflection",
+    "theme"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "course": {
+      "type": "object",
+      "required": [
+        "id",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "lesson": {
+      "type": "object",
+      "required": [
+        "id",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "milestoneIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "responses": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reflection": {
+      "type": "object",
+      "required": [
+        "understood",
+        "unresolved",
+        "questions",
+        "difficulty",
+        "helpful",
+        "nextPreference"
+      ],
+      "properties": {
+        "understood": {
+          "type": "string"
+        },
+        "unresolved": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "string"
+        },
+        "difficulty": {
+          "enum": [
+            "too_easy",
+            "about_right",
+            "too_hard",
+            "not_sure"
+          ]
+        },
+        "helpful": {
+          "type": "string"
+        },
+        "nextPreference": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "theme": {
+      "type": "object",
+      "required": [
+        "mode",
+        "preset",
+        "customEnabled",
+        "resolvedMode"
+      ],
+      "additionalProperties": true
+    },
+    "completedIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

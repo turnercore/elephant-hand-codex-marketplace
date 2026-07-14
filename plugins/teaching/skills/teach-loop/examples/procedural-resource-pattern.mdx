@@ -1,0 +1,74 @@
+import {
+  Checkpoint,
+  Cite,
+  GuidedResource,
+  KeyTerm,
+  LessonSection,
+  SourcePanel,
+  VideoSegment,
+} from "@/lesson-kit";
+import { defineLesson } from "@/course/define-lesson";
+
+// Pattern only. Add inspected source records with these IDs to src/course/sources.ts.
+export const lesson = defineLesson({
+  id: "0001-bowline-path",
+  title: "Follow the bowline's rope path",
+  summary: "Use real demonstrations to trace the working end, then tie and diagnose the knot without the guide.",
+  estimatedMinutes: 14,
+  milestoneIds: ["fixed-loop"],
+  outcomes: ["Tie a bowline and explain the path of the working end."],
+  targetGap: "The learner remembers a rhyme but cannot reliably reconstruct the rope path.",
+  successEvidence: ["The learner ties the knot without the demonstration and diagnoses one malformed example."],
+  sourceIds: ["animated-knots-bowline", "short-bowline-video"],
+  lessonType: "procedural",
+  keyTerms: ["working end", "standing part", "bight"],
+});
+
+<LessonSection id="vocabulary" title="Name the rope before moving it">
+  The <KeyTerm term="working end">end actively manipulated while tying</KeyTerm> travels around the
+  <KeyTerm term="standing part">the longer load-bearing portion of rope</KeyTerm>. A
+  <KeyTerm term="bight">a curved section of rope that does not cross itself</KeyTerm> is not yet a knot.
+  <Cite source="animated-knots-bowline" />
+</LessonSection>
+
+<LessonSection id="step-through" title="Inspect a controllable real demonstration">
+  <GuidedResource
+    id="animated-bowline-step-through"
+    sourceId="animated-knots-bowline"
+    estimatedTime="3–5 minutes"
+    purpose="Pause and reverse a verified rope path"
+    before={<>Predict which segment the working end passes under before it returns through the first loop.</>}
+    inspect={<>Track only the working end. Pause after each crossing and say whether it is over, under, or through.</>}
+    after={<>Close the resource and reconstruct the crossing sequence from memory.</>}
+    alternative={<>Use a sourced still-image sequence or a live demonstration with the same observation prompts.</>}
+  />
+</LessonSection>
+
+<LessonSection id="video" title="Watch the hand sequence once">
+  <VideoSegment
+    id="bowline-video-segment"
+    title="Short bowline demonstration"
+    sourceId="short-bowline-video"
+    videoId="Q9NqGd7464U"
+    externalUrl="https://www.youtube.com/watch?v=Q9NqGd7464U"
+    durationLabel="Short demonstration"
+    purpose="See hand orientation and rope tension in real time"
+    before={<>Watch for the moment the fixed loop size becomes determined.</>}
+    after={<>Tie once without replaying. Then explain the step where your hands were least certain.</>}
+    alternative={<>Return to the controllable step-through and perform one step at a time.</>}
+  />
+</LessonSection>
+
+<LessonSection id="perform" title="Tie, then diagnose">
+  <Checkpoint
+    id="bowline-independent-performance"
+    prompt="Tie the bowline without looking. Describe the path of the working end and name one visible sign that the knot is dressed correctly."
+    hints={[
+      "Trace crossings rather than recalling the rabbit rhyme.",
+      "Identify the initial loop and the standing part before moving the working end.",
+      "Re-open the real demonstration, inspect one uncertain crossing, then close it before retrying.",
+    ]}
+  />
+</LessonSection>
+
+<SourcePanel sourceIds={lesson.sourceIds} />

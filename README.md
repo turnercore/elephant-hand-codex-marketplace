@@ -8,7 +8,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/productivity`: assistant file workflows, currently PDF and Paperless-ngx
 - `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
 - `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
-- `plugins/teaching`: reserved for Elephant Hand teaching skills
+- `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
 - `plugins/coding`: implementation, test-driven development, and prototyping
 - `plugins/planning`: grilling, domain modeling, handoffs, specs, tickets, and wayfinding
 - `plugins/grist`: standalone Grist integration
@@ -27,6 +27,10 @@ Coding and Planning, plus `code-review` in Reviewing, vendor selected work from
 copyright (c) 2026 Matt Pocock, licensed under the MIT License. Each bundle
 includes the upstream license and can now evolve independently inside this
 marketplace.
+
+Teaching contains Teach Loop, copyright (c) 2026 Turner Monroe and Teach Loop
+contributors, licensed under the MIT License. Teach Loop's included third-party
+notice preserves attribution for the Matt Pocock `teach` skill it extends.
 
 The Reviewing bundle vendors skills from the Elephant Hand Ponytail and Brooks
 Lint integration branches, plus Improve and Fable Review. Each retains its
@@ -63,8 +67,8 @@ retained set is:
 - Coding: `implement`, `tdd`, and `prototype`
 - Reviewing: `code-review`
 
-All other Matt Pocock skills are intentionally excluded. Teaching remains
-empty until Elephant Hand's teaching skill is added.
+All other Matt Pocock skills are intentionally excluded. Teaching contains
+Elephant Hand's independently maintained Teach Loop skill.
 
 ## Updating Reviewing Sources
 
