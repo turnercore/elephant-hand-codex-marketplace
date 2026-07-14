@@ -59,7 +59,7 @@
       "source": {
         "source": "url",
         "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/ponytail.git",
-        "ref": "main"
+        "ref": "elephant-hand"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -71,8 +71,8 @@
       "name": "brooks-lint",
       "source": {
         "source": "url",
-        "url": "https://github.com/hyhmrright/brooks-lint.git",
-        "ref": "main"
+        "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/brooks-lint.git",
+        "ref": "elephant-hand"
       },
       "policy": {
         "installation": "AVAILABLE",

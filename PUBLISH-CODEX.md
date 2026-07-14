@@ -5,7 +5,9 @@ This repository is the Elephant Hand Codex plugin marketplace.
 Codex expects the marketplace manifest at `.agents/plugins/marketplace.json`.
 Entries either point at a local plugin bundle under `plugins/<plugin-name>` or
 at a Git-backed upstream/integration repository. `mattpocock-skills`, `improve`,
-and `ponytail` use the Git-backed model.
+`ponytail`, and `brooks-lint` use the Git-backed model. Ponytail and Brooks Lint
+install from Elephant Hand-owned `elephant-hand` branches so their compact
+model-visible metadata can diverge safely from upstream.
 
 ## Install
 
@@ -31,6 +33,7 @@ codex plugin add html-artifacts@elephant-hand
 codex plugin add mattpocock-skills@elephant-hand
 codex plugin add improve@elephant-hand
 codex plugin add ponytail@elephant-hand
+codex plugin add brooks-lint@elephant-hand
 codex plugin add dox@elephant-hand
 ```
 
