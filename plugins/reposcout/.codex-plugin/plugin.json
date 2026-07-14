@@ -1,6 +1,6 @@
 {
   "name": "reposcout",
-  "version": "0.1.0+codex.20260622095030",
+  "version": "0.1.1",
   "description": "Expose RepoScout as a read-only repository context MCP server.",
   "author": {
     "name": "Turner Core",

@@ -1,6 +1,6 @@
 {
   "name": "grist",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Work with Grist documents through MCP tools and a direct REST fallback helper.",
   "author": {
     "name": "Turner Core",

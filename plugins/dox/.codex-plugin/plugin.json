@@ -1,6 +1,6 @@
 {
   "name": "dox",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Install and maintain DOX automatically for repository edits unless applicable instructions opt out.",
   "author": {
     "name": "Agent Zero / Elephant Hand",

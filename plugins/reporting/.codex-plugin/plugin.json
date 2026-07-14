@@ -1,0 +1,42 @@
+{
+  "name": "reporting",
+  "version": "0.1.0",
+  "description": "Create and share clear human-facing reports and artifacts.",
+  "author": {
+    "name": "Turner Core / Elephant Hand",
+    "email": "me@turnercore.dev",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+  },
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "reporting",
+    "html",
+    "drawio",
+    "diagrams",
+    "artifacts",
+    "communication",
+    "tailscale"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Reporting",
+    "shortDescription": "Human-facing reports and artifacts.",
+    "longDescription": "Helps Codex communicate work clearly to humans through accurate Draw.io diagrams and polished static HTML reports, plans, comparisons, galleries, and workbenches that can be shared over localhost or Tailscale.",
+    "developerName": "Turner Core / Elephant Hand",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "defaultPrompt": [
+      "Turn these findings into a polished HTML report.",
+      "Create a clear architecture diagram for this system.",
+      "Share this static report over Tailscale."
+    ],
+    "brandColor": "#B33A2E"
+  }
+}

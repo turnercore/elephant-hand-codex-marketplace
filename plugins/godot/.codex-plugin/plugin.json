@@ -1,6 +1,6 @@
 {
   "name": "godot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run and validate Godot 4 projects headlessly from Codex.",
   "author": {
     "name": "Turner Core / Elephant Hand",

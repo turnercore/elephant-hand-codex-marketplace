@@ -1,6 +1,6 @@
 ---
 name: forgejo
-description: Use when the user wants Codex to work with the Elephant Hand Forgejo instance, Forgejo or Gitea repositories, issues, pull requests, organizations, users, releases, Actions runners, or instance/admin APIs.
+description: Manage Forgejo repositories, issues, pull requests, workflows, and releases.
 ---
 
 # Forgejo
@@ -116,14 +116,14 @@ This plugin includes `scripts/forgejo_api.py`, a small zero-dependency Python he
 Examples:
 
 ```bash
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py user
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py version
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py repos --limit 50
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py search-repos marketplace
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py issues OWNER REPO --state open
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py pulls OWNER REPO
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py create-issue OWNER REPO "Bug title" --body "Details"
-python3 /Users/turnercore/Projects/Codex/elephant-hand-codex-marketplace/plugins/forgejo/scripts/forgejo_api.py raw GET /repos/OWNER/REPO
+python3 <forgejo-plugin>/scripts/forgejo_api.py user
+python3 <forgejo-plugin>/scripts/forgejo_api.py version
+python3 <forgejo-plugin>/scripts/forgejo_api.py repos --limit 50
+python3 <forgejo-plugin>/scripts/forgejo_api.py search-repos marketplace
+python3 <forgejo-plugin>/scripts/forgejo_api.py issues OWNER REPO --state open
+python3 <forgejo-plugin>/scripts/forgejo_api.py pulls OWNER REPO
+python3 <forgejo-plugin>/scripts/forgejo_api.py create-issue OWNER REPO "Bug title" --body "Details"
+python3 <forgejo-plugin>/scripts/forgejo_api.py raw GET /repos/OWNER/REPO
 ```
 
 Use `--raw` when compact JSON is useful for follow-up processing.

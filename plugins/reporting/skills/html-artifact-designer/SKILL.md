@@ -1,6 +1,6 @@
 ---
 name: html-artifact-designer
-description: Create polished, readable static HTML artifacts for reports, plans, option galleries, and workbenches. Use when Codex needs to present results visually, explain an implementation plan, let the user choose between options, let the user tune/export something interactively, or incorporate feedback into future HTML artifact behavior.
+description: Create polished HTML reports and interactive artifacts.
 ---
 
 # HTML Artifact Designer
@@ -17,7 +17,7 @@ Use this skill when an HTML artifact is the user-facing output. Compose it with 
 6. Serve the finished HTML with:
 
 ```bash
-python3 /home/turnercore/.codex/skills/share-static-html/scripts/serve_static_html.py /absolute/path/to/artifact.html
+python3 ../share-static-html/scripts/serve_static_html.py /absolute/path/to/artifact.html
 ```
 
 If multiple HTML artifacts are created, serve each one and return the Tailscale URLs.
@@ -124,16 +124,16 @@ When using the default CSS, copy or link:
 <link rel="stylesheet" href="./elephant-hand-artifact.css">
 ```
 
-Source asset:
+Source asset, relative to this skill directory:
 
 ```text
-/home/turnercore/.codex/skills/html-artifact-designer/assets/elephant-hand-artifact.css
+assets/elephant-hand-artifact.css
 ```
 
 If the HTML lives outside the skill folder, copy the CSS next to it:
 
 ```bash
-cp /home/turnercore/.codex/skills/html-artifact-designer/assets/elephant-hand-artifact.css /path/to/output/
+cp <reporting-plugin>/skills/html-artifact-designer/assets/elephant-hand-artifact.css /path/to/output/
 ```
 
 For one-off reports, embedding the CSS in a `<style>` tag is acceptable when it keeps sharing simpler.

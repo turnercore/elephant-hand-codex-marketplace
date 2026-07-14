@@ -1,6 +1,6 @@
 ---
 name: reposcout
-description: Use RepoScout to locate relevant repository files before broad manual search. Trigger when investigating where behavior is implemented, locating files for a bug or feature, finding wiring/config/schema/tool registration code, or triaging test failures in a repo.
+description: Find relevant repository files before broad manual search.
 ---
 
 # RepoScout

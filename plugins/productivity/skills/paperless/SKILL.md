@@ -1,6 +1,6 @@
 ---
 name: paperless
-description: Work with a Paperless-ngx server for document operations. Use when Codex needs to upload local scans, PDFs, images, and other documents; search or look up Paperless documents; download or inspect files; triage unreviewed documents; classify content; choose, create after approval, verify, or update tags, correspondents, document types, storage paths, created dates, titles, archive serial numbers, or custom fields; poll ingestion tasks; or configure Paperless API access without storing secrets in the skill.
+description: Upload, search, classify, and triage Paperless-ngx documents.
 ---
 
 # Paperless

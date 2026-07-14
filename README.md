@@ -4,21 +4,16 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 ## Contents
 
-- `plugins/grist`: the Grist plugin package
-- `plugins/forgejo`: the Forgejo plugin package
-- `plugins/godot`: Elephant Hand's Godot headless testing plugin package
-- `plugins/productivity`: Elephant Hand's productivity plugin package, currently
-  containing the Paperless-ngx document workflow skill
-- `mattpocock-skills`: Git-backed plugin sourced from Elephant Hand's
+- `plugins/godot`: Godot headless testing
+- `plugins/productivity`: assistant file workflows, currently PDF and Paperless-ngx
+- `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
+- `plugins/reviewing`: Ponytail, Brooks Lint, Improve, and Fable review workflows
+- `mattpocock-skills`: standalone Git-backed plugin sourced from Elephant Hand's
   [`mattpocock/skills` integration fork](https://forge.elephanthand.com/Elephant-Hand-Games/mattpocock-skills/src/branch/elephant-hand)
-- `improve`: Git-backed plugin sourced from [`shadcn/improve`](https://github.com/shadcn/improve)
-- `ponytail`: Git-backed plugin sourced from Elephant Hand's
-  [`DietrichGebert/ponytail` integration fork](https://forge.elephanthand.com/Elephant-Hand-Games/ponytail),
-  with Codex hooks disabled and terse model-visible descriptions
-- `brooks-lint`: Git-backed plugin sourced from Elephant Hand's
-  [`hyhmrright/brooks-lint` integration fork](https://forge.elephanthand.com/Elephant-Hand-Games/brooks-lint),
-  with terse model-visible descriptions
+- `plugins/grist`: standalone Grist integration
+- `plugins/forgejo`: standalone Elephant Hand Forgejo integration
 - `dox`: repo-owned DOX plugin with automatic AGENTS.md hierarchy adoption
+- `reposcout`: standalone repository context tool
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
 - `plugins/forgejo/.env.example`: local environment template for Forgejo credentials
@@ -33,9 +28,10 @@ history from [`mattpocock/skills`](https://github.com/mattpocock/skills) on
 
 Original work copyright (c) 2026 Matt Pocock, licensed under the MIT License.
 
-Ponytail and Brooks Lint retain their upstream authorship and MIT licenses. The
-marketplace installs each repository's `elephant-hand` integration branch;
-`main` remains the upstream-tracking baseline.
+The Reviewing bundle vendors skills from the Elephant Hand Ponytail and Brooks
+Lint integration branches, plus Improve and Fable Review. Each retains its
+upstream authorship and license. Ponytail remains hook-free in Codex and both
+Ponytail and Brooks retain their terse model-visible descriptions.
 
 ## Updating Matt Pocock Skills
 
@@ -64,7 +60,7 @@ Resolve or decline that last merge like any normal integration change. Codex
 only receives changes after they land on `elephant-hand` and this marketplace
 is upgraded.
 
-## Updating Ponytail and Brooks Lint
+## Updating Reviewing Sources
 
 Both plugins use the same two-branch integration pattern. Clone the Elephant
 Hand fork and add its public source as `upstream`:
@@ -83,7 +79,7 @@ git remote add upstream https://github.com/hyhmrright/brooks-lint.git
 ```
 
 For either fork, update the upstream-tracking baseline, then merge it into the
-installable integration branch:
+Elephant Hand integration branch:
 
 ```sh
 git fetch upstream
@@ -97,8 +93,22 @@ git push origin elephant-hand
 
 During conflict resolution, preserve the short `description` in every
 `skills/*/SKILL.md`. Ponytail must also keep the Codex manifest free of a
-`hooks` entry and `Lifecycle hooks` capability. Bump the plugin version whenever
-those Codex-visible files change so an upgrade does not reuse stale cache.
+`hooks` entry and `Lifecycle hooks` capability. After updating a source, copy
+its skill directories into `plugins/reviewing/skills/`, validate the Reviewing
+plugin, and bump its version so an upgrade does not reuse stale cache. Improve
+comes from [`shadcn/improve`](https://github.com/shadcn/improve); Fable Review
+comes from [`turnercore/anthropic-batch-processing-cli`](https://forge.elephanthand.com/turnercore/anthropic-batch-processing-cli).
+
+Brooks' upstream `_shared/` files live at `plugins/reviewing/references/brooks/`
+in the aggregate plugin; its skill references must use
+`../../references/brooks/`. Ponytail's aggregate copy omits the unsupported
+`argument-hint` frontmatter field as well as all hook registration.
+
+## Compact Skill Descriptions
+
+Every repo-owned skill uses a short, one-line machine description. Detailed
+triggers and operating rules belong in the skill body so merely enabling a
+plugin does not consume unnecessary model context.
 
 ## Updating
 

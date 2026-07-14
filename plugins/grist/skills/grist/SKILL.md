@@ -1,6 +1,6 @@
 ---
 name: grist
-description: Use when the user wants Codex to connect to a Grist instance, inspect Grist orgs/workspaces/docs, import CSV-like data, or query/create/update/delete records through Grist MCP tools or the REST API fallback helper.
+description: Query and update Grist documents, schemas, and records.
 ---
 
 # Grist
@@ -13,7 +13,7 @@ Use this skill for Grist work. Prefer registered Grist MCP tools when they are a
 - `GRIST_API_KEY`: user API key from Grist profile settings.
 - Document IDs come from Grist URLs after `/doc/`.
 
-Never print API keys. This local plugin may keep defaults in `/Users/turnercore/plugins/grist/.env`, which must stay `0600`.
+Never print API keys. This plugin may keep defaults in `<grist-plugin>/.env`, which must stay `0600`.
 
 ## Tool Priority
 
@@ -50,28 +50,28 @@ Useful endpoints:
 
 ## Helper Script
 
-This plugin includes `scripts/grist_api.py`, a small zero-dependency Python helper. It automatically loads `/Users/turnercore/plugins/grist/.env` when present, while explicit environment variables still take priority. Use `--env-file PATH` to load another dotenv file.
+This plugin includes `scripts/grist_api.py`, a small zero-dependency Python helper. It automatically loads the plugin-root `.env` when present, while explicit environment variables still take priority. Use `--env-file PATH` to load another dotenv file.
 
 Examples:
 
 ```bash
-python3 /Users/turnercore/plugins/grist/scripts/grist_api.py orgs
+python3 <grist-plugin>/scripts/grist_api.py orgs
 ```
 
 ```bash
-python3 /Users/turnercore/plugins/grist/scripts/grist_api.py records DOC_ID TABLE_ID
+python3 <grist-plugin>/scripts/grist_api.py records DOC_ID TABLE_ID
 ```
 
 ```bash
-python3 /Users/turnercore/plugins/grist/scripts/grist_api.py inspect DOC_ID --sample-size 3
+python3 <grist-plugin>/scripts/grist_api.py inspect DOC_ID --sample-size 3
 ```
 
 ```bash
-python3 /Users/turnercore/plugins/grist/scripts/grist_api.py sql DOC_ID 'select * from Table1 limit 10'
+python3 <grist-plugin>/scripts/grist_api.py sql DOC_ID 'select * from Table1 limit 10'
 ```
 
 ```bash
-python3 /Users/turnercore/plugins/grist/scripts/grist_api.py add-records DOC_ID TABLE_ID '[{"Name":"Ada"}]' --dry-run
+python3 <grist-plugin>/scripts/grist_api.py add-records DOC_ID TABLE_ID '[{"Name":"Ada"}]' --dry-run
 ```
 
 Use `--raw` when you need exact JSON for follow-up processing.

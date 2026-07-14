@@ -4,10 +4,9 @@ This repository is the Elephant Hand Codex plugin marketplace.
 
 Codex expects the marketplace manifest at `.agents/plugins/marketplace.json`.
 Entries either point at a local plugin bundle under `plugins/<plugin-name>` or
-at a Git-backed upstream/integration repository. `mattpocock-skills`, `improve`,
-`ponytail`, and `brooks-lint` use the Git-backed model. Ponytail and Brooks Lint
-install from Elephant Hand-owned `elephant-hand` branches so their compact
-model-visible metadata can diverge safely from upstream.
+at a Git-backed upstream/integration repository. `mattpocock-skills` remains
+Git-backed. Reviewing vendors the customized Ponytail and Brooks skills plus
+Improve and Fable Review so all review workflows share one toggle.
 
 ## Install
 
@@ -26,17 +25,15 @@ After adding the marketplace, open the Codex plugin directory and install the
 plugins you want, or install from the CLI:
 
 ```sh
-codex plugin add grist@elephant-hand
-codex plugin add forgejo@elephant-hand
-codex plugin add reposcout@elephant-hand
-codex plugin add html-artifacts@elephant-hand
-codex plugin add mattpocock-skills@elephant-hand
-codex plugin add improve@elephant-hand
-codex plugin add ponytail@elephant-hand
-codex plugin add brooks-lint@elephant-hand
-codex plugin add dox@elephant-hand
 codex plugin add godot@elephant-hand
 codex plugin add productivity@elephant-hand
+codex plugin add reporting@elephant-hand
+codex plugin add reviewing@elephant-hand
+codex plugin add mattpocock-skills@elephant-hand
+codex plugin add grist@elephant-hand
+codex plugin add forgejo@elephant-hand
+codex plugin add dox@elephant-hand
+codex plugin add reposcout@elephant-hand
 ```
 
 ## Upgrade
@@ -128,9 +125,12 @@ Before pushing marketplace changes:
    `policy.authentication`, and `category`.
 3. Confirm every plugin path resolves from the marketplace root.
 4. Confirm every plugin has `.codex-plugin/plugin.json`.
-5. Bump a plugin version when changing install-surface metadata or behavior that
+5. Keep every repo-owned `SKILL.md` description to one short, plain-language
+   sentence. Put trigger details and operating rules in the skill body so the
+   always-visible skill list stays compact.
+6. Bump a plugin version when changing install-surface metadata or behavior that
    should be reinstalled from cache.
-6. Commit and push to `main`.
+7. Commit and push to `main`.
 
 After pushing:
 

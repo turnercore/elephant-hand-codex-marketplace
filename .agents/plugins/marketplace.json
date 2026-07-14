@@ -5,118 +5,6 @@
   },
   "plugins": [
     {
-      "name": "grist",
-      "source": {
-        "source": "local",
-        "path": "./plugins/grist"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "html-artifacts",
-      "source": {
-        "source": "local",
-        "path": "./plugins/html-artifacts"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_USE"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "mattpocock-skills",
-      "source": {
-        "source": "url",
-        "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/mattpocock-skills.git",
-        "ref": "elephant-hand"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "improve",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/shadcn/improve.git",
-        "ref": "main"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
-    },
-    {
-      "name": "ponytail",
-      "source": {
-        "source": "url",
-        "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/ponytail.git",
-        "ref": "elephant-hand"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
-    },
-    {
-      "name": "brooks-lint",
-      "source": {
-        "source": "url",
-        "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/brooks-lint.git",
-        "ref": "elephant-hand"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
-    },
-    {
-      "name": "dox",
-      "source": {
-        "source": "local",
-        "path": "./plugins/dox"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
-    },
-    {
-      "name": "forgejo",
-      "source": {
-        "source": "local",
-        "path": "./plugins/forgejo"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "reposcout",
-      "source": {
-        "source": "local",
-        "path": "./plugins/reposcout"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
       "name": "godot",
       "source": {
         "source": "local",
@@ -133,6 +21,91 @@
       "source": {
         "source": "local",
         "path": "./plugins/productivity"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "reporting",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reporting"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "reviewing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reviewing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "mattpocock-skills",
+      "source": {
+        "source": "url",
+        "url": "ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/mattpocock-skills.git",
+        "ref": "elephant-hand"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "grist",
+      "source": {
+        "source": "local",
+        "path": "./plugins/grist"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "forgejo",
+      "source": {
+        "source": "local",
+        "path": "./plugins/forgejo"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "dox",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dox"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "reposcout",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reposcout"
       },
       "policy": {
         "installation": "AVAILABLE",

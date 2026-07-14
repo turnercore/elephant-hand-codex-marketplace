@@ -1,6 +1,6 @@
 ---
 name: share-static-html
-description: Serve local static HTML artifacts over the Tailscale network and return a browser URL. Use when Codex creates, updates, or needs to share an HTML report, benchmark comparison, dashboard export, coverage report, generated static site, or any other local .html artifact with the user.
+description: Serve static HTML artifacts over Tailscale.
 ---
 
 # Share Static HTML
@@ -12,7 +12,7 @@ When you create or update an HTML artifact for the user, serve it automatically 
 Use the bundled script:
 
 ```bash
-python3 /home/turnercore/.codex/skills/share-static-html/scripts/serve_static_html.py /absolute/path/to/report.html
+python3 scripts/serve_static_html.py /absolute/path/to/report.html
 ```
 
 The script:

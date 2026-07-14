@@ -1,6 +1,6 @@
 ---
 name: dox
-description: Install and maintain agent0ai/dox-style self-documenting AGENTS.md hierarchies. Use when Codex is asked to initialize, repair, or update DOX; when repository structure or durable workflows change; and automatically before the first meaningful repository edit when the applicable root AGENTS.md does not already implement DOX. Do not auto-install during read-only work or when applicable instructions explicitly say no DOX, disable DOX, or otherwise opt out.
+description: Initialize and maintain repository AGENTS.md hierarchies.
 ---
 
 # DOX

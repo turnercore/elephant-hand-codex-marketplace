@@ -1,6 +1,6 @@
 ---
 name: godot-headless-test
-description: "Run, import, and smoke-test Godot 4.x projects from the terminal using the installed editor binary in headless mode. Use when Codex needs to actually validate a Godot project instead of only reading code: startup checks, asset import checks, scene smoke tests, script parse checks, CLI verification, or quick regression testing for Godot games and tools."
+description: Import, smoke-test, and parse-check Godot projects headlessly.
 ---
 
 # Godot Headless Test

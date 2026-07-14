@@ -1,0 +1,39 @@
+{
+  "name": "reviewing",
+  "version": "0.1.0",
+  "description": "Review repositories for over-engineering, architecture health, and improvement opportunities.",
+  "author": {
+    "name": "Elephant Hand and upstream authors",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+  },
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "review",
+    "architecture",
+    "over-engineering",
+    "tech-debt",
+    "code-quality"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Reviewing",
+    "shortDescription": "Repository and code review workflows.",
+    "longDescription": "Combines Elephant Hand's hook-free Ponytail review skills, Brooks architecture and repository-health reviews, Improve's read-only advisory workflow, and Fable's asynchronous batch reviews behind one toggle.",
+    "developerName": "Elephant Hand and upstream authors",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "defaultPrompt": [
+      "Review this diff for over-engineering.",
+      "Assess this repository's architecture health.",
+      "Find and prioritize codebase improvement opportunities."
+    ],
+    "brandColor": "#6D28D9"
+  }
+}
