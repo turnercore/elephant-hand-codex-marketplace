@@ -1,0 +1,4 @@
+interface:
+  display_name: "Godot Headless Test"
+  short_description: "Run Godot projects headlessly"
+  default_prompt: "Use $godot-headless-test to smoke-test this Godot project headlessly."

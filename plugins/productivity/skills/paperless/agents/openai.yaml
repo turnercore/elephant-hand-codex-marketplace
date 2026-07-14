@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paperless"
+  short_description: "Upload, triage, and search Paperless docs"
+  default_prompt: "Use $paperless to upload, triage, or search my Paperless documents with careful metadata."

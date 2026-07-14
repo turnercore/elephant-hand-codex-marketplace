@@ -6,6 +6,9 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 - `plugins/grist`: the Grist plugin package
 - `plugins/forgejo`: the Forgejo plugin package
+- `plugins/godot`: Elephant Hand's Godot headless testing plugin package
+- `plugins/productivity`: Elephant Hand's productivity plugin package, currently
+  containing the Paperless-ngx document workflow skill
 - `mattpocock-skills`: Git-backed plugin sourced from Elephant Hand's
   [`mattpocock/skills` integration fork](https://forge.elephanthand.com/Elephant-Hand-Games/mattpocock-skills/src/branch/elephant-hand)
 - `improve`: Git-backed plugin sourced from [`shadcn/improve`](https://github.com/shadcn/improve)

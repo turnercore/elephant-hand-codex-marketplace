@@ -1,0 +1,39 @@
+{
+  "name": "productivity",
+  "version": "0.1.0",
+  "description": "Manage Paperless-ngx documents safely from Codex.",
+  "author": {
+    "name": "Turner Core / Elephant Hand",
+    "email": "me@turnercore.dev",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+  },
+  "homepage": "https://docs.paperless-ngx.com/",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "keywords": [
+    "paperless-ngx",
+    "documents",
+    "ocr",
+    "classification",
+    "productivity"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Productivity",
+    "shortDescription": "Paperless document workflows.",
+    "longDescription": "Adds Elephant Hand's Paperless-ngx skill and API helper for uploading, searching, downloading, classifying, and triaging documents with careful metadata and sensitive-document handling.",
+    "developerName": "Turner Core / Elephant Hand",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://docs.paperless-ngx.com/",
+    "defaultPrompt": [
+      "Search my Paperless documents.",
+      "Triage unreviewed Paperless documents.",
+      "Upload and classify this document in Paperless."
+    ],
+    "brandColor": "#17541F"
+  }
+}

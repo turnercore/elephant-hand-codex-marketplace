@@ -35,6 +35,8 @@ codex plugin add improve@elephant-hand
 codex plugin add ponytail@elephant-hand
 codex plugin add brooks-lint@elephant-hand
 codex plugin add dox@elephant-hand
+codex plugin add godot@elephant-hand
+codex plugin add productivity@elephant-hand
 ```
 
 ## Upgrade

@@ -1,0 +1,39 @@
+{
+  "name": "godot",
+  "version": "0.1.0",
+  "description": "Run and validate Godot 4 projects headlessly from Codex.",
+  "author": {
+    "name": "Turner Core / Elephant Hand",
+    "email": "me@turnercore.dev",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+  },
+  "homepage": "https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "keywords": [
+    "godot",
+    "gdscript",
+    "headless",
+    "testing",
+    "game-development"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Godot",
+    "shortDescription": "Headless Godot project validation.",
+    "longDescription": "Adds Elephant Hand's Godot headless testing skill for locating the editor, importing assets, smoke-testing projects and scenes, and parse-checking GDScript from the terminal.",
+    "developerName": "Turner Core / Elephant Hand",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html",
+    "defaultPrompt": [
+      "Smoke-test this Godot project headlessly.",
+      "Import and validate this Godot project's assets.",
+      "Parse-check this GDScript file with Godot."
+    ],
+    "brandColor": "#478CBF"
+  }
+}
