@@ -1,0 +1,37 @@
+{
+  "name": "subagents",
+  "version": "0.1.0",
+  "description": "Delegate work economically while preserving the primary agent's context.",
+  "author": {
+    "name": "Turner Core / Elephant Hand",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+  },
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "subagents",
+    "delegation",
+    "orchestration",
+    "context",
+    "reviews"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Subagents",
+    "shortDescription": "Economical, context-saving agent delegation.",
+    "longDescription": "A user-triggered orchestration policy for choosing economical subagents, preserving primary-agent context, isolating mutations, and running independent reviews.",
+    "developerName": "Turner Core / Elephant Hand",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "defaultPrompt": [
+      "Use subagents economically for the rest of this chat."
+    ],
+    "brandColor": "#0F766E"
+  }
+}

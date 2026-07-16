@@ -10,6 +10,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
 - `plugins/coding`: implementation, test-driven development, and prototyping
+- `plugins/subagents`: economical, context-saving subagent delegation
 - `plugins/planning`: grilling, domain modeling, handoffs, specs, tickets, and wayfinding
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
