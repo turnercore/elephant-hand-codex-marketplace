@@ -60,12 +60,16 @@ Return: Summary; owned files changed; input and resulting commit hashes; verific
 Stop when: The bounded change is committed and verified, or a blocker requires the primary agent.
 ```
 
-## Follow-up verification
+## Focused blocker verification
+
+Use this pattern at most once for a specific unresolved blocking finding. Do not
+use it to rerun a general review after remediation.
 
 ```text
-Objective: Independently verify that <prior findings/change> is resolved.
+Objective: Independently verify that <specific blocking finding> is resolved.
 Scope: <target>. Read-only.
 Context: Provide the target and acceptance criteria, not the prior agent's reasoning transcript.
 Return: Clean/not clean; remaining findings with concise evidence; uncertainties.
-Stop when: Each acceptance criterion has been checked.
+Stop when: The named blocker and its acceptance criteria have been checked. Do not
+start another review or propose unrelated improvements.
 ```

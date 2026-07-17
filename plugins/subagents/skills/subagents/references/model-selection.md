@@ -21,5 +21,7 @@ Use this card as the current authoritative routing guide. Choose by context volu
 - Prefer Sol Lite when a bounded task needs interpretation or judgment and can tolerate less depth than Sol Medium.
 - Prefer Sol Medium when correctness depends on strong judgment. Use it as the default reviewer.
 - Reserve Sol High for unusually difficult, broad, or critical work.
-- Use Terra High for a follow-up review after findings were fixed when a clean result is expected.
+- Use a focused follow-up reviewer only for one unresolved blocking finding that
+  the primary agent cannot verify deterministically; do not rerun a general review
+  panel merely because findings were fixed.
 - Keep architecture and scope decisions with the primary agent regardless of model.

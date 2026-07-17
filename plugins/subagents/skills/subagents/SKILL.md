@@ -13,6 +13,11 @@ Treat explicit invocation as authorization to use subagents economically for the
 
 Do not force delegation when its coordination overhead exceeds its value. Use the smallest sufficient team and avoid duplicate assignments.
 
+Delegation is a context and throughput optimization, not permission to expand the
+task. A child owns only its bounded assignment and may not add workstreams,
+commission reviewers, start a full-suite validation phase, integrate branches,
+publish, or deploy. Those decisions remain with the primary agent.
+
 Before the first spawn, read [references/model-selection.md](references/model-selection.md). Use [references/delegation-patterns.md](references/delegation-patterns.md) when drafting assignments.
 
 ## Keep ownership with the primary agent
@@ -47,6 +52,25 @@ Point repository agents to the applicable `AGENTS.md` hierarchy and let them rea
 
 Prefer delegation when a task would bloat the primary context merely to find, run, read, inspect, monitor, or summarize something. Keep reactive work with the primary agent when it must respond immediately to changing results.
 
+## Preserve one delivery pipeline
+
+When the task includes implementation, review, final validation, integration, and
+release, keep those as forward-only primary-agent phases:
+
+1. Complete and integrate implementation using focused tests.
+2. Run the requested independent reviewers once against the same integrated
+   snapshot.
+3. Consolidate findings and perform one remediation pass with targeted tests.
+4. Run the full suite, fix failures with focused reruns, and perform one final
+   full-suite confirmation.
+5. Integrate, push, build, publish, deploy, and validate in that order when those
+   actions are in scope.
+
+Do not run independent reviewers at spec lock, at implementation phase boundaries,
+after each delegated commit, or after each finding is fixed. Do not recursively
+review another reviewer's findings. Do not restart earlier phases after a later
+phase failure; resume from the earliest phase actually invalidated by the fix.
+
 ## Isolate mutations
 
 Assign mutation agents to separate code areas or separate worktrees. Every mutation assignment must declare:
@@ -60,12 +84,25 @@ Require the agent to commit its changes and return the resulting commit hash. Re
 
 ## Run independent reviews
 
-Delegate review work to an independent, read-only subagent. Give it only the review target, applicable repository instructions, and review objective. Do not pass the primary agent's conclusions, suspected findings, previous reasoning, or an expected answer.
+After the integrated implementation and focused tests are complete, delegate each
+requested review to an independent, read-only subagent. Start independent reviewers
+in one batch when possible so they inspect the same snapshot. Give them only the
+review target, applicable repository instructions, and review objective. Do not
+pass the primary agent's conclusions, suspected findings, previous reasoning, or
+an expected answer.
 
 When another review skill is active, direct the reviewer to load it and preserve its workflow. In particular:
 
-- Run Ponytail reviewer delegates at spec lock and each phase boundary when Ponytail is in use.
-- Give Brooks reviewer delegates a branch-radius stop condition and ask for split points when Brooks is in use.
+- Run Ponytail, Improve, Brooks, or other requested review delegates once after
+  implementation integration, not at intermediate phase boundaries.
+- Give Brooks reviewer delegates a branch-radius stop condition and ask for split
+  points when Brooks is in use; split-point advice is follow-up planning, not an
+  automatic expansion of the current task.
+
+The primary agent consolidates all review findings and decides which are blocking
+or in scope before making one remediation pass. Do not automatically rerun the
+review panel after fixes. Use at most one focused follow-up reviewer when a specific
+blocking finding cannot be verified deterministically by the primary agent.
 
 Do not require those optional review skills to use this skill.
 
@@ -97,3 +134,6 @@ When the platform supports it, allow Terra and Sol agents to spawn Luna High or 
 - Other read-only find, run, read, or summarize work that would bloat their context.
 
 Limit nested delegation to one additional level. Require every child spawn to use `fork_turns: none`. Do not allow Luna children to delegate again or mutate files. Keep mutation assignments directly owned by the primary agent. If nested delegation is unavailable, let the primary agent spawn the Luna utility agent instead.
+
+Nested utility agents return evidence only. They may not create new objectives,
+review their parent, request repairs, or trigger another lifecycle phase.
