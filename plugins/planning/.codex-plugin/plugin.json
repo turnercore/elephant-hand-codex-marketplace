@@ -1,7 +1,7 @@
 {
   "name": "planning",
-  "version": "0.1.0",
-  "description": "Clarify ideas and turn decisions into actionable plans.",
+  "version": "0.2.0",
+  "description": "Stress-test plans while preserving their decisions and handoffs.",
   "author": {
     "name": "Matt Pocock and Elephant Hand",
     "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
@@ -11,16 +11,14 @@
   "license": "MIT",
   "keywords": [
     "planning",
-    "specifications",
-    "tickets",
-    "domain-modeling",
+    "decision-records",
     "handoff"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Planning",
-    "shortDescription": "Interviews, specifications, and work planning.",
-    "longDescription": "Planning workflows for stress-testing ideas, defining domain language, creating handoffs, writing specifications and tickets, and mapping work that spans multiple sessions.",
+    "shortDescription": "Grilling interviews with durable decisions and handoffs.",
+    "longDescription": "Stress-test an idea one decision at a time, keep the session and project knowledge documented, and hand the work off cleanly when needed.",
     "developerName": "Matt Pocock / Elephant Hand",
     "category": "Productivity",
     "capabilities": [
@@ -30,9 +28,8 @@
     ],
     "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
     "defaultPrompt": [
-      "Stress-test this plan with me.",
-      "Turn our decisions into a specification.",
-      "Break this work into dependency-aware tickets."
+      "Grill this plan with me and keep the decisions documented.",
+      "Create a handoff for the next session."
     ],
     "brandColor": "#7C3AED"
   }

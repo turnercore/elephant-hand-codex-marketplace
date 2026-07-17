@@ -9,9 +9,9 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
 - `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
-- `plugins/coding`: implementation, test-driven development, and prototyping
+- `plugins/coding`: test-driven development and Playprint bootstrapping
 - `plugins/subagents`: economical, context-saving subagent delegation
-- `plugins/planning`: grilling, domain modeling, handoffs, specs, tickets, and wayfinding
+- `plugins/planning`: documented grilling sessions and handoffs
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
 - `plugins/dox`: repo-owned DOX plugin with automatic AGENTS.md hierarchy adoption
@@ -63,9 +63,8 @@ skills deliberately, preserve the short Codex descriptions and local
 adaptations, validate the affected bundles, and bump their versions. The
 retained set is:
 
-- Planning: `grill-with-docs`, `grilling`, `grill-me`, `domain-modeling`,
-  `handoff`, `to-spec`, `to-tickets`, and `wayfinder`
-- Coding: `implement`, `tdd`, and `prototype`
+- Planning: `grill-me` and `handoff`
+- Coding: `tdd` (plus Elephant Hand's `playprint-bootstrap`)
 - Reviewing: `code-review`
 
 All other Matt Pocock skills are intentionally excluded. Teaching contains
