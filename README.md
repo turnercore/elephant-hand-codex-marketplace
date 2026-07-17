@@ -9,7 +9,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
 - `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
-- `plugins/coding`: test-driven development and Playprint bootstrapping
+- `plugins/coding`: test-driven development, agent container design, and Playprint bootstrapping
 - `plugins/subagents`: economical, context-saving subagent delegation
 - `plugins/planning`: documented grilling sessions and handoffs
 - `plugins/grist`: standalone Grist integration
@@ -23,7 +23,8 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 ## Attribution
 
-Coding and Planning, plus `code-review` in Reviewing, vendor selected work from
+Coding includes Elephant Hand's `agent-containers` skill. Coding and Planning,
+plus `code-review` in Reviewing, vendor selected work from
 [`mattpocock/skills`](https://github.com/mattpocock/skills). Original work
 copyright (c) 2026 Matt Pocock, licensed under the MIT License. Each bundle
 includes the upstream license and can now evolve independently inside this
