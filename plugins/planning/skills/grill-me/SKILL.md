@@ -1,6 +1,6 @@
 ---
 name: grill-me
-description: Stress-test a plan one question at a time while recording its decisions.
+description: Stress-test a plan through focused questions while recording its decisions.
 ---
 
 # Grill Me
@@ -45,8 +45,13 @@ as open. Do not present speculation as a settled decision.
 
 Walk the design tree branch by branch until there is a shared understanding.
 For every question, provide a recommended answer and the trade-off behind it.
-Ask exactly one question, then wait for the user's response before asking the
-next. Multiple questions at once are bewildering.
+
+Ask one question at a time whenever a later question depends on the answer to
+an earlier one. You may ask a small batch of two or three closely related
+questions when each can be answered independently; say why they are grouped.
+Never batch questions merely for convenience, or combine questions whose
+answers would change the recommendation for another question. Wait for the
+user's response before moving to the next dependent branch.
 
 If a fact can be found by reading the repository, issue tracker, or existing
 documentation, find it rather than asking. Surface contradictions between the
