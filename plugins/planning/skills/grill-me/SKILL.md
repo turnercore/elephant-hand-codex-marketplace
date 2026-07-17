@@ -5,9 +5,9 @@ description: Stress-test a plan through focused questions while recording its de
 
 # Grill Me
 
-Sharpen the user's idea or plan through a focused, one-question-at-a-time
-interview. Treat the user as the decision-maker: investigate facts yourself,
-then ask the user only for choices that cannot be discovered from the project.
+Sharpen the user's idea or plan through a focused interview. Treat the user as
+the decision-maker: investigate facts yourself, then ask the user only for
+choices that cannot be discovered from the project.
 
 ## Start the session record
 
