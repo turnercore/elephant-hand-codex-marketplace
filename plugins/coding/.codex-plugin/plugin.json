@@ -1,7 +1,7 @@
 {
   "name": "coding",
-  "version": "0.1.0",
-  "description": "Implement, test, and prototype code with focused workflows.",
+  "version": "0.2.0",
+  "description": "Implement, test, prototype, and bootstrap Playprint with focused workflows.",
   "author": {
     "name": "Matt Pocock and Elephant Hand",
     "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
@@ -13,13 +13,14 @@
     "coding",
     "implementation",
     "tdd",
-    "prototype"
+    "prototype",
+    "playprint"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Coding",
-    "shortDescription": "Implementation, TDD, and prototyping.",
-    "longDescription": "Focused coding workflows for implementing approved work, developing in test-first slices, and building throwaway prototypes that answer design questions.",
+    "shortDescription": "Implementation, TDD, prototyping, and Playprint setup.",
+    "longDescription": "Focused coding workflows for implementing approved work, developing in test-first slices, building throwaway prototypes that answer design questions, and explicitly bootstrapping a pinned Playprint workspace.",
     "developerName": "Matt Pocock / Elephant Hand",
     "category": "Developer Tools",
     "capabilities": [
@@ -31,7 +32,8 @@
     "defaultPrompt": [
       "Implement this approved specification.",
       "Build this change test-first.",
-      "Prototype this design question."
+      "Prototype this design question.",
+      "Use $playprint-bootstrap to initialize Playprint in this Host Game Repository."
     ],
     "brandColor": "#2563EB"
   }

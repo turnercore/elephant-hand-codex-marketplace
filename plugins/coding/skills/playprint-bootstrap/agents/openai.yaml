@@ -1,0 +1,6 @@
+interface:
+  display_name: "Playprint Bootstrap"
+  short_description: "Initialize a pinned Playprint game workspace"
+  default_prompt: "Use $playprint-bootstrap to initialize Playprint in this Host Game Repository."
+policy:
+  allow_implicit_invocation: false
