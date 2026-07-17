@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "reposcout": {
+      "command": "bash",
+      "args": ["./scripts/run_reposcout_mcp.sh"],
+      "note": "Mounts the current workspace read-only and runs the configured RepoScout backend."
+    }
+  }
+}

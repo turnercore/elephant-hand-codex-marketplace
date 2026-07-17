@@ -1,7 +1,7 @@
 {
   "name": "reposcout",
-  "version": "0.1.1",
-  "description": "Expose RepoScout as a read-only repository context MCP server.",
+  "version": "0.2.0",
+  "description": "Use a separate read-only Pi scout to map repository context.",
   "author": {
     "name": "Turner Core",
     "email": "me@turnercore.dev",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "RepoScout",
     "shortDescription": "Find relevant repo files before broad search.",
-    "longDescription": "Adds a Dockerized RepoScout MCP server that mounts the current checkout read-only and exposes find_context for bounded GLOB, GREP, and READ exploration with compact file-line citations.",
+    "longDescription": "Adds a portable RepoScout MCP server. DeepSeek Flash/high is the fast default, Luna/xhigh is the accuracy tier, and credentials remain local runtime configuration.",
     "developerName": "Turner Core",
     "category": "Productivity",
     "capabilities": [

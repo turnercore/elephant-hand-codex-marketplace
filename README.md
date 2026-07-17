@@ -9,12 +9,12 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
 - `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
-- `plugins/coding`: implementation, test-driven development, and prototyping
+- `plugins/coding`: implementation, test-driven development, prototyping, and RepoScout
 - `plugins/planning`: grilling, domain modeling, handoffs, specs, tickets, and wayfinding
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
 - `plugins/dox`: repo-owned DOX plugin with automatic AGENTS.md hierarchy adoption
-- `plugins/reposcout`: standalone repository context tool
+- `plugins/reposcout`: optional standalone RepoScout bundle for installs without Coding
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
 - `plugins/forgejo/.env.example`: local environment template for Forgejo credentials

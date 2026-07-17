@@ -3,7 +3,7 @@ set -euo pipefail
 
 IMAGE="${REPOSCOUT_IMAGE:-forge.elephanthand.com/turnercore/reposcout-mcp:latest}"
 START_DIR="${CODEX_WORKSPACE_DIR:-$PWD}"
-BACKEND="${FASTCONTEXT_BACKEND:-openai}"
+BACKEND="${REPOSCOUT_BACKEND:-deepseek}"
 
 if [[ -n "${REPOSCOUT_REPO_ROOT:-}" ]]; then
   REPO_ROOT="$REPOSCOUT_REPO_ROOT"
@@ -44,18 +44,26 @@ if [[ "${REPOSCOUT_REWRITE_LOCALHOST:-true}" == "true" ]]; then
   CONTAINER_GATEWAY_URL="${CONTAINER_GATEWAY_URL/https:\/\/127.0.0.1/https:\/\/host.docker.internal}"
 fi
 
-if [[ "$BACKEND" != "gateway" && "$BACKEND" != "fastcontext" && "$BACKEND" != "loop" && "$BACKEND" != "native" ]]; then
-  if [[ -z "${FASTCONTEXT_MODEL:-}" ]]; then
-    echo "RepoScout error: FASTCONTEXT_MODEL is required for OpenAI-compatible backend" >&2
+AUTH_ARGS=()
+if [[ "$BACKEND" == "luna" ]]; then
+  PI_AUTH_PATH="${REPOSCOUT_PI_AUTH_PATH:-${HOME}/.pi/agent/auth.json}"
+  if [[ ! -f "$PI_AUTH_PATH" ]]; then
+    echo "RepoScout error: Luna requires Pi auth at $PI_AUTH_PATH" >&2
     exit 2
   fi
+  AUTH_ARGS=(-v "${PI_AUTH_PATH}:/root/.pi/agent/auth.json:ro")
 fi
 
 exec docker run --rm -i \
   --add-host=host.docker.internal:host-gateway \
+  "${AUTH_ARGS[@]}" \
   -v "${REPO_ROOT}:/workspace:ro" \
   -v "reposcout-cache:/cache" \
-  -e FASTCONTEXT_BACKEND="$BACKEND" \
+  -e REPOSCOUT_BACKEND="$BACKEND" \
+  -e OPENCODE_API_KEY \
+  -e REPOSCOUT_LOCAL_PROVIDER \
+  -e REPOSCOUT_LOCAL_MODEL \
+  -e REPOSCOUT_LOCAL_THINKING \
   -e FASTCONTEXT_BASE_URL="$CONTAINER_BASE_URL" \
   -e FASTCONTEXT_GATEWAY_URL="$CONTAINER_GATEWAY_URL" \
   -e FASTCONTEXT_MODEL \
