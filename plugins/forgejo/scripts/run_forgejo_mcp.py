@@ -15,6 +15,7 @@ from urllib.request import urlretrieve
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ENV_FILE = PLUGIN_ROOT / ".env"
+USER_ENV_FILE = Path.home() / ".config" / "elephant-hand" / "forgejo.env"
 PINNED_VERSION = "v2.28.0"
 PINNED_RELEASE_VERSION = PINNED_VERSION.removeprefix("v")
 DEFAULT_FORGEJO_URL = "https://forge.elephanthand.com"
@@ -119,7 +120,10 @@ def ensure_binary() -> Path:
 
 
 def main() -> int:
-    load_env_file()
+    # Keep credentials outside the versioned plugin cache so upgrades preserve
+    # authentication. The plugin-local file remains a portable fallback.
+    load_env_file(USER_ENV_FILE)
+    load_env_file(DEFAULT_ENV_FILE)
     os.environ.setdefault("FORGEJO_URL", DEFAULT_FORGEJO_URL)
     if not os.environ.get("FORGEJO_ACCESS_TOKEN"):
         os.environ["FORGEJO_ACCESS_TOKEN"] = os.environ.get("FORGEJO_TOKEN", "")
