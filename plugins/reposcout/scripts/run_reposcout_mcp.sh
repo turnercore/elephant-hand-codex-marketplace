@@ -30,19 +30,23 @@ fi
 
 REPO_ROOT="$(cd "$REPO_ROOT" && pwd -P)"
 
-CONTAINER_BASE_URL="${FASTCONTEXT_BASE_URL:-http://host.docker.internal:1234/v1}"
-CONTAINER_GATEWAY_URL="${FASTCONTEXT_GATEWAY_URL:-${GATEWAY:-http://100.66.204.27:41800}}"
+rewrite_localhost() {
+  local url="$1"
+  if [[ "${REPOSCOUT_REWRITE_LOCALHOST:-true}" != "true" ]]; then
+    printf '%s\n' "$url"
+    return
+  fi
+  case "$url" in
+    http://localhost*) printf 'http://host.docker.internal%s\n' "${url#http://localhost}" ;;
+    http://127.0.0.1*) printf 'http://host.docker.internal%s\n' "${url#http://127.0.0.1}" ;;
+    https://localhost*) printf 'https://host.docker.internal%s\n' "${url#https://localhost}" ;;
+    https://127.0.0.1*) printf 'https://host.docker.internal%s\n' "${url#https://127.0.0.1}" ;;
+    *) printf '%s\n' "$url" ;;
+  esac
+}
 
-if [[ "${REPOSCOUT_REWRITE_LOCALHOST:-true}" == "true" ]]; then
-  CONTAINER_BASE_URL="${CONTAINER_BASE_URL/http:\/\/localhost/http:\/\/host.docker.internal}"
-  CONTAINER_BASE_URL="${CONTAINER_BASE_URL/http:\/\/127.0.0.1/http:\/\/host.docker.internal}"
-  CONTAINER_BASE_URL="${CONTAINER_BASE_URL/https:\/\/localhost/https:\/\/host.docker.internal}"
-  CONTAINER_BASE_URL="${CONTAINER_BASE_URL/https:\/\/127.0.0.1/https:\/\/host.docker.internal}"
-  CONTAINER_GATEWAY_URL="${CONTAINER_GATEWAY_URL/http:\/\/localhost/http:\/\/host.docker.internal}"
-  CONTAINER_GATEWAY_URL="${CONTAINER_GATEWAY_URL/http:\/\/127.0.0.1/http:\/\/host.docker.internal}"
-  CONTAINER_GATEWAY_URL="${CONTAINER_GATEWAY_URL/https:\/\/localhost/https:\/\/host.docker.internal}"
-  CONTAINER_GATEWAY_URL="${CONTAINER_GATEWAY_URL/https:\/\/127.0.0.1/https:\/\/host.docker.internal}"
-fi
+CONTAINER_BASE_URL="$(rewrite_localhost "${FASTCONTEXT_BASE_URL:-http://host.docker.internal:1234/v1}")"
+CONTAINER_GATEWAY_URL="$(rewrite_localhost "${FASTCONTEXT_GATEWAY_URL:-${GATEWAY:-http://100.66.204.27:41800}}")"
 
 if [[ "$BACKEND" != "gateway" && "$BACKEND" != "fastcontext" && "$BACKEND" != "loop" && "$BACKEND" != "native" ]]; then
   if [[ -z "${FASTCONTEXT_MODEL:-}" ]]; then
@@ -54,7 +58,6 @@ fi
 exec docker run --rm -i \
   --add-host=host.docker.internal:host-gateway \
   -v "${REPO_ROOT}:/workspace:ro" \
-  -v "reposcout-cache:/cache" \
   -e FASTCONTEXT_BACKEND="$BACKEND" \
   -e FASTCONTEXT_BASE_URL="$CONTAINER_BASE_URL" \
   -e FASTCONTEXT_GATEWAY_URL="$CONTAINER_GATEWAY_URL" \
@@ -67,10 +70,12 @@ exec docker run --rm -i \
   -e REPOSCOUT_USE_NATIVE_TOOL_CALLS \
   -e REPOSCOUT_DEFAULT_REPO=/workspace \
   -e REPOSCOUT_MAX_TURNS \
+  -e REPOSCOUT_MAX_TOOL_CALLS_PER_TURN \
   -e REPOSCOUT_MAX_CITATIONS \
   -e REPOSCOUT_MAX_GREP_RESULTS \
   -e REPOSCOUT_MAX_GLOB_RESULTS \
   -e REPOSCOUT_MAX_READ_LINES \
+  -e REPOSCOUT_MAX_LINE_CHARS \
   -e REPOSCOUT_MAX_OBSERVATION_CHARS \
   -e REPOSCOUT_MAX_TOTAL_OBSERVATION_CHARS \
   -e MCP_TRANSPORT=stdio \

@@ -5,7 +5,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 ## Contents
 
 - `plugins/godot`: Godot headless testing
-- `plugins/productivity`: assistant file workflows, currently PDF and Paperless-ngx
+- `plugins/productivity`: Paperless-ngx document workflows; OpenAI's PDF plugin owns general PDF work
 - `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
 - `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
@@ -36,8 +36,10 @@ notice preserves attribution for the Matt Pocock `teach` skill it extends.
 
 The Reviewing bundle vendors skills from the Elephant Hand Ponytail and Brooks
 Lint integration branches, plus Improve and Fable Review. Each retains its
-upstream authorship and license. Ponytail remains hook-free in Codex and both
-Ponytail and Brooks retain their terse model-visible descriptions.
+upstream authorship and license. Ponytail's Codex-compatible lifecycle scripts
+live under `plugins/reviewing/hooks/`; Codex discovers `hooks/hooks.json`
+natively when Reviewing is enabled. Ponytail and Brooks retain their terse
+model-visible descriptions.
 
 ## Updating Vendored Matt Pocock Skills
 
@@ -103,17 +105,43 @@ git push origin elephant-hand
 ```
 
 During conflict resolution, preserve the short `description` in every
-`skills/*/SKILL.md`. Ponytail must also keep the Codex manifest free of a
-`hooks` entry and `Lifecycle hooks` capability. After updating a source, copy
-its skill directories into `plugins/reviewing/skills/`, validate the Reviewing
-plugin, and bump its version so an upgrade does not reuse stale cache. Improve
+`skills/*/SKILL.md`. Copy Ponytail's Codex hook scripts into
+`plugins/reviewing/hooks/` and its hook configuration to
+`plugins/reviewing/hooks/hooks.json`; the default path avoids a redundant
+manifest override. After updating a source, copy its skill directories into
+`plugins/reviewing/skills/`, validate the Reviewing plugin, and bump its version
+so an upgrade does not reuse stale cache. Improve
 comes from [`shadcn/improve`](https://github.com/shadcn/improve); Fable Review
 comes from [`turnercore/anthropic-batch-processing-cli`](https://forge.elephanthand.com/turnercore/anthropic-batch-processing-cli).
 
 Brooks' upstream `_shared/` files live at `plugins/reviewing/references/brooks/`
 in the aggregate plugin; its skill references must use
 `../../references/brooks/`. Ponytail's aggregate copy omits the unsupported
-`argument-hint` frontmatter field as well as all hook registration.
+`argument-hint` frontmatter field.
+
+## Validation
+
+Run the repository-owned checks before publishing:
+
+```sh
+python scripts/validate_marketplace.py
+node --test tests/reviewing-hooks.test.js
+```
+
+The validator rejects duplicate skill names, legacy plugin IDs, missing local
+paths, invalid manifests, and broken plugin hook references.
+
+To audit or normalize one Codex host to the studio baseline:
+
+```sh
+python scripts/normalize_codex_installation.py
+python scripts/normalize_codex_installation.py --apply
+```
+
+The normalizer upgrades the marketplace, removes superseded plugin IDs,
+installs the shared studio set, installs RepoScout only when Docker is ready,
+and removes only the legacy global Ponytail hook handlers. It backs up a config
+file before any direct fallback edit.
 
 ## Compact Skill Descriptions
 

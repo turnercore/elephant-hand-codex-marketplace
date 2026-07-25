@@ -132,7 +132,9 @@ Before pushing marketplace changes:
    always-visible skill list stays compact.
 6. Bump a plugin version when changing install-surface metadata or behavior that
    should be reinstalled from cache.
-7. Commit and push to `main`.
+7. Run `python scripts/validate_marketplace.py`.
+8. Run `node --test tests/reviewing-hooks.test.js`.
+9. Commit and push to `main`.
 
 After pushing:
 
@@ -142,3 +144,7 @@ codex plugin marketplace upgrade elephant-hand
 
 Restart Codex or open a new Codex thread after installing/upgrading plugins so
 the available tools and skills list is rebuilt from the refreshed cache.
+
+If an upgraded plugin adds or changes lifecycle hooks, open `/hooks` in Codex
+and trust the reviewed hook definitions. Plugin installation does not
+automatically trust command hooks.
