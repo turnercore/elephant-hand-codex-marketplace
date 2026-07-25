@@ -17,6 +17,7 @@ from urllib.request import Request, urlopen
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ENV_FILE = PLUGIN_ROOT / ".env"
+USER_ENV_FILE = Path.home() / ".config" / "elephant-hand" / "forgejo.env"
 DEFAULT_FORGEJO_URL = "https://forge.elephanthand.com"
 
 
@@ -95,8 +96,16 @@ def parse_json_arg(value: str) -> Any:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default=None, help="Forgejo site root. Defaults to FORGEJO_URL or Elephant Hand Forgejo.")
-    parser.add_argument("--token", default=None, help="Forgejo access token. Defaults to FORGEJO_TOKEN.")
-    parser.add_argument("--env-file", default=str(DEFAULT_ENV_FILE), help="Dotenv file to load before environment variables.")
+    parser.add_argument(
+        "--token",
+        default=None,
+        help="Forgejo access token. Defaults to FORGEJO_ACCESS_TOKEN or FORGEJO_TOKEN.",
+    )
+    parser.add_argument(
+        "--env-file",
+        default=None,
+        help=f"Dotenv override. Defaults to {USER_ENV_FILE}, then the plugin-local .env.",
+    )
     parser.add_argument("--raw", action="store_true", help="Print compact JSON.")
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -153,11 +162,22 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
-    load_env_file(Path(args.env_file))
+    if args.env_file:
+        load_env_file(Path(args.env_file))
+    else:
+        load_env_file(USER_ENV_FILE)
+        load_env_file(DEFAULT_ENV_FILE)
     base_url = args.base_url or os.environ.get("FORGEJO_URL") or DEFAULT_FORGEJO_URL
-    token = args.token or os.environ.get("FORGEJO_TOKEN")
+    token = (
+        args.token
+        or os.environ.get("FORGEJO_ACCESS_TOKEN")
+        or os.environ.get("FORGEJO_TOKEN")
+    )
     if not token:
-        raise SystemExit("Missing Forgejo token. Set FORGEJO_TOKEN or pass --token.")
+        raise SystemExit(
+            "Missing Forgejo token. Set FORGEJO_ACCESS_TOKEN or FORGEJO_TOKEN, "
+            "or pass --token."
+        )
 
     if args.command == "user":
         result = request_json("GET", base_url, token, "/user")

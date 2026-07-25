@@ -13,7 +13,17 @@ Use this skill for Forgejo work. Prefer registered Forgejo MCP tools when they a
 - `FORGEJO_ACCESS_TOKEN`: Forgejo access token from `Settings | Applications`; preferred by `goern/forgejo-mcp`.
 - `FORGEJO_TOKEN`: Backward-compatible alias used by the local launcher and REST helper.
 
-Never print access tokens. A local plugin `.env` may be used, but it must stay untracked and have permissions `0600`.
+Never print access tokens. Store durable workstation credentials in
+`~/.config/elephant-hand/forgejo.env` with permissions `0600`:
+
+```dotenv
+FORGEJO_URL=https://forge.elephanthand.com
+FORGEJO_ACCESS_TOKEN=replace-with-a-forgejo-access-token
+FORGEJO_TOKEN=replace-with-a-forgejo-access-token
+```
+
+Explicit environment variables take priority. A plugin-local `.env` is a
+portable fallback, must stay untracked, and must also have permissions `0600`.
 
 ## Tool Priority
 
@@ -25,17 +35,18 @@ Never print access tokens. A local plugin `.env` may be used, but it must stay u
 
 ## `fj` CLI
 
-Verified local CLI facts:
+Elephant Hand connection facts:
 
-- `fj version` reports `fj v0.5.0`.
-- `fj auth list` currently shows `turnercore@forge.elephanthand.com:20004`.
-- `fj -H forge.elephanthand.com:20004 whoami` works.
-- `fj -H forge.elephanthand.com whoami` currently reports not logged in.
+- Forgejo UI, API, `fj`, and OCI registry use HTTPS on standard port `443`.
+- Git over SSH uses port `41004`.
+- `fj version` prints the installed CLI version.
+- `fj auth login` starts interactive login; `fj auth add-key USER [KEY]`
+  installs an existing token.
 
 Use global flags before the subcommand:
 
 ```bash
-fj -H forge.elephanthand.com:20004 --style minimal repo view OWNER/REPO
+fj -H forge.elephanthand.com --style minimal repo view OWNER/REPO
 ```
 
 Do not use `fj --version`; use:
@@ -48,18 +59,18 @@ Useful commands:
 
 ```bash
 fj auth list
-fj -H forge.elephanthand.com:20004 whoami
-fj -H forge.elephanthand.com:20004 --style minimal repo view OWNER/REPO
-fj -H forge.elephanthand.com:20004 repo clone OWNER/REPO
-fj -H forge.elephanthand.com:20004 issue search -R origin
-fj -H forge.elephanthand.com:20004 issue create -R origin
-fj -H forge.elephanthand.com:20004 pr search -R origin
-fj -H forge.elephanthand.com:20004 pr create --repo OWNER/REPO --base main --head BRANCH "Title"
-fj -H forge.elephanthand.com:20004 pr status -R origin
-fj -H forge.elephanthand.com:20004 actions tasks --repo OWNER/REPO
-fj -H forge.elephanthand.com:20004 release list --repo OWNER/REPO
-fj -H forge.elephanthand.com:20004 org list
-fj -H forge.elephanthand.com:20004 user view USERNAME
+fj -H forge.elephanthand.com whoami
+fj -H forge.elephanthand.com --style minimal repo view OWNER/REPO
+fj -H forge.elephanthand.com repo clone OWNER/REPO
+fj -H forge.elephanthand.com issue search -R origin
+fj -H forge.elephanthand.com issue create -R origin
+fj -H forge.elephanthand.com pr search -R origin
+fj -H forge.elephanthand.com pr create --repo OWNER/REPO --base main --head BRANCH "Title"
+fj -H forge.elephanthand.com pr status -R origin
+fj -H forge.elephanthand.com actions tasks --repo OWNER/REPO
+fj -H forge.elephanthand.com release list --repo OWNER/REPO
+fj -H forge.elephanthand.com org list
+fj -H forge.elephanthand.com user view USERNAME
 ```
 
 ## API Basics
@@ -111,7 +122,10 @@ The plugin launches the pinned `goern/forgejo-mcp` release. Common MCP tools inc
 
 ## Helper Script
 
-This plugin includes `scripts/forgejo_api.py`, a small zero-dependency Python helper. It automatically loads plugin `.env` when present, while explicit environment variables still take priority. Use `--env-file PATH` to load another dotenv file.
+This plugin includes `scripts/forgejo_api.py`, a small zero-dependency Python
+helper. It loads the stable user credential file, then the plugin-local `.env`
+fallback, while explicit environment variables take priority. Use
+`--env-file PATH` to select another dotenv file.
 
 Examples:
 
@@ -128,9 +142,11 @@ python3 <forgejo-plugin>/scripts/forgejo_api.py raw GET /repos/OWNER/REPO
 
 Use `--raw` when compact JSON is useful for follow-up processing.
 
-## TLS Note
+## TLS
 
-Do not disable TLS verification in plugin code. During setup on 2026-06-01, local `curl https://forge.elephanthand.com/api/v1/version` failed certificate verification because the presented certificate chain was issued by `Caddy Local Authority`. `curl -k` is acceptable only as a diagnostic while the host trust/certificate setup is being repaired.
+Do not disable TLS verification in plugin code. If certificate verification
+fails, repair the workstation trust chain; use insecure requests only for
+short-lived diagnosis and never for authenticated operations.
 
 ## Workflow
 
@@ -154,7 +170,7 @@ Default MCP server:
 
 - Package/release: `goern/forgejo-mcp v2.28.0`
 - Upstream repository: `https://codeberg.org/goern/forgejo-mcp`
-- Launcher: `scripts/run_forgejo_mcp.py` downloads the pinned release archive, verifies it against upstream checksums, maps `FORGEJO_TOKEN` to `FORGEJO_ACCESS_TOKEN` when needed, and starts stdio transport.
+- Launcher: `scripts/run_forgejo_mcp.py` loads durable user credentials, downloads the pinned release archive, verifies it against upstream checksums, maps `FORGEJO_TOKEN` to `FORGEJO_ACCESS_TOKEN` when needed, and starts stdio transport.
 
 Official docs:
 
