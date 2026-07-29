@@ -26,7 +26,7 @@ Use this workflow when writing or reviewing a Dockerfile that will run an AI age
 2. If absent, get approval before a persistent host install. Install with Homebrew (`brew tap immanuwell/droast https://github.com/immanuwell/homebrew-droast.git && brew install immanuwell/droast/droast`) or Cargo (`cargo install dockerfile-roast`). If host installation is undesirable, run a reviewed, pinned `ghcr.io/immanuwell/droast:<version>` image instead.
 3. Run `droast --no-roast --min-severity warning Dockerfile`. For multiple files, use the project's Dockerfile glob.
 4. Fix warnings and errors, then rerun until clean. Document any intentionally accepted rule and rationale; do not hide findings with `--no-fail` or broad skips.
-5. Suggest adding droast to CI with a pinned release when the repository has a Docker build pipeline.
+5. Suggest adding droast to CI with a pinned release when the repository has a OCI image build pipeline.
 
 Droast is a focused Dockerfile linter, not proof that the image builds, runs, shuts down correctly, excludes secrets, or meets agent-runtime requirements. Complete the remaining verification steps.
 

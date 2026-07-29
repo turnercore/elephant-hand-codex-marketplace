@@ -18,13 +18,13 @@ if [[ ! -d "$REPO_ROOT" ]]; then
   exit 2
 fi
 
-if ! command -v docker >/dev/null 2>&1; then
-  echo "RepoScout error: docker is not installed or not on PATH" >&2
+if ! command -v podman >/dev/null 2>&1; then
+  echo "RepoScout error: podman is not installed or not on PATH" >&2
   exit 2
 fi
 
-if ! docker info >/dev/null 2>&1; then
-  echo "RepoScout error: docker is not running or is not reachable" >&2
+if ! podman info >/dev/null 2>&1; then
+  echo "RepoScout error: podman is not running or is not reachable" >&2
   exit 2
 fi
 
@@ -37,15 +37,15 @@ rewrite_localhost() {
     return
   fi
   case "$url" in
-    http://localhost*) printf 'http://host.docker.internal%s\n' "${url#http://localhost}" ;;
-    http://127.0.0.1*) printf 'http://host.docker.internal%s\n' "${url#http://127.0.0.1}" ;;
-    https://localhost*) printf 'https://host.docker.internal%s\n' "${url#https://localhost}" ;;
-    https://127.0.0.1*) printf 'https://host.docker.internal%s\n' "${url#https://127.0.0.1}" ;;
+    http://localhost*) printf 'http://host.containers.internal%s\n' "${url#http://localhost}" ;;
+    http://127.0.0.1*) printf 'http://host.containers.internal%s\n' "${url#http://127.0.0.1}" ;;
+    https://localhost*) printf 'https://host.containers.internal%s\n' "${url#https://localhost}" ;;
+    https://127.0.0.1*) printf 'https://host.containers.internal%s\n' "${url#https://127.0.0.1}" ;;
     *) printf '%s\n' "$url" ;;
   esac
 }
 
-CONTAINER_BASE_URL="$(rewrite_localhost "${FASTCONTEXT_BASE_URL:-http://host.docker.internal:1234/v1}")"
+CONTAINER_BASE_URL="$(rewrite_localhost "${FASTCONTEXT_BASE_URL:-http://host.containers.internal:1234/v1}")"
 CONTAINER_GATEWAY_URL="$(rewrite_localhost "${FASTCONTEXT_GATEWAY_URL:-${GATEWAY:-http://100.66.204.27:41800}}")"
 
 if [[ "$BACKEND" != "gateway" && "$BACKEND" != "fastcontext" && "$BACKEND" != "loop" && "$BACKEND" != "native" ]]; then
@@ -55,8 +55,7 @@ if [[ "$BACKEND" != "gateway" && "$BACKEND" != "fastcontext" && "$BACKEND" != "l
   fi
 fi
 
-exec docker run --rm -i \
-  --add-host=host.docker.internal:host-gateway \
+exec podman run --rm -i \
   -v "${REPO_ROOT}:/workspace:ro" \
   -e FASTCONTEXT_BACKEND="$BACKEND" \
   -e FASTCONTEXT_BASE_URL="$CONTAINER_BASE_URL" \
