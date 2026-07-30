@@ -44,22 +44,22 @@ def test_reposcout_wrapper_mounts_read_only_and_rewrites_localhost(tmp_path):
     repo_root.mkdir()
     fake_bin = tmp_path / "bin"
     fake_bin.mkdir()
-    docker_args = tmp_path / "docker-args"
-    fake_docker = fake_bin / "docker"
-    fake_docker.write_text(
+    podman_args = tmp_path / "podman-args"
+    fake_podman = fake_bin / "podman"
+    fake_podman.write_text(
         """#!/bin/sh
 if [ "$1" = "info" ]; then
   exit 0
 fi
-printf '%s\\n' "$@" > "$FAKE_DOCKER_ARGS"
+printf '%s\\n' "$@" > "$FAKE_PODMAN_ARGS"
 """,
         encoding="utf-8",
     )
-    fake_docker.chmod(0o755)
+    fake_podman.chmod(0o755)
     env = {
         **os.environ,
         "PATH": f"{fake_bin}{os.pathsep}{os.environ['PATH']}",
-        "FAKE_DOCKER_ARGS": str(docker_args),
+        "FAKE_PODMAN_ARGS": str(podman_args),
         "REPOSCOUT_REPO_ROOT": str(repo_root),
         "REPOSCOUT_IMAGE": "example.invalid/reposcout-mcp:test",
         "FASTCONTEXT_MODEL": "test-model",
@@ -78,15 +78,15 @@ printf '%s\\n' "$@" > "$FAKE_DOCKER_ARGS"
     )
 
     assert result.returncode == 0, result.stderr
-    args = docker_args.read_text(encoding="utf-8").splitlines()
+    args = podman_args.read_text(encoding="utf-8").splitlines()
     assert f"{repo_root.resolve()}:/workspace:ro" in args
-    assert "FASTCONTEXT_BASE_URL=http://host.docker.internal:1234/v1" in args
+    assert "FASTCONTEXT_BASE_URL=http://host.containers.internal:1234/v1" in args
     assert "REPOSCOUT_MAX_TOOL_CALLS_PER_TURN" in args
     assert "REPOSCOUT_MAX_LINE_CHARS" in args
     assert not any("/cache" in arg for arg in args)
 
 
-def test_normalizer_replaces_legacy_plugins_and_respects_docker():
+def test_normalizer_replaces_legacy_plugins_and_respects_podman():
     installed = {
         "html-artifacts@elephant-hand",
         "mattpocock-skills@elephant-hand",
@@ -106,7 +106,7 @@ def test_normalizer_replaces_legacy_plugins_and_respects_docker():
     }
 
     removals, additions, unavailable = plan_actions(
-        installed, available, docker_ready=False
+        installed, available, podman_ready=False
     )
 
     assert removals == [
@@ -123,7 +123,7 @@ def test_normalizer_reenables_disabled_baseline_plugin():
     removals, additions, unavailable = plan_actions(
         set(),
         {"reviewing@elephant-hand"},
-        docker_ready=False,
+        podman_ready=False,
         configured={"reviewing@elephant-hand"},
     )
 

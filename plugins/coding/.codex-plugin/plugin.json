@@ -13,7 +13,7 @@
     "coding",
     "tdd",
     "playprint",
-    "docker",
+    "oci",
     "containers",
     "agents"
   ],
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Coding",
     "shortDescription": "Test-first development, agent containers, and Playprint setup.",
-    "longDescription": "Focused workflows for test-first changes, reliable Docker images for agent runtimes, and explicitly bootstrapping a pinned Playprint workspace.",
+    "longDescription": "Focused workflows for test-first changes, reliable OCI images for agent runtimes, and explicitly bootstrapping a pinned Playprint workspace.",
     "developerName": "Matt Pocock / Elephant Hand",
     "category": "Developer Tools",
     "capabilities": [
