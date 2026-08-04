@@ -1,28 +1,28 @@
 {
   "name": "dox",
-  "version": "0.3.1",
-  "description": "Install and maintain DOX automatically for repository edits unless applicable instructions opt out.",
+  "version": "0.4.0",
+  "description": "Self-updating minimal AGENTS.md context routing.",
   "author": {
-    "name": "Agent Zero / Elephant Hand",
-    "url": "https://github.com/agent0ai/dox"
+    "name": "Elephant Hand",
+    "url": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace"
   },
-  "homepage": "https://github.com/agent0ai/dox",
+  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
   "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
   "license": "MIT",
   "keywords": ["agents-md", "documentation", "repository", "codex"],
   "skills": "./skills/",
   "interface": {
-    "displayName": "DOX",
-    "shortDescription": "Keep repository AGENTS.md hierarchies current.",
-    "longDescription": "Packages Elephant Hand's self-contained DOX skill and validator, inspired by agent0ai/dox for initializing, repairing, and maintaining scoped repository instruction hierarchies.",
-    "developerName": "Agent Zero / Elephant Hand",
+    "displayName": "DOX Breadcrumbs",
+    "shortDescription": "Self-updating minimal AGENTS.md context routing.",
+    "longDescription": "Creates, slims, repairs, and validates cascading AGENTS.md breadcrumbs with portable repository-owned context budgets and CI enforcement. Inspired by agent0ai/dox and maintained by Elephant Hand.",
+    "developerName": "Elephant Hand",
     "category": "Developer Tools",
     "capabilities": ["Read", "Write", "Interactive"],
-    "websiteURL": "https://github.com/agent0ai/dox",
+    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
     "defaultPrompt": [
-      "Initialize DOX for this repository.",
-      "Repair this repository's AGENTS.md hierarchy.",
-      "Update DOX after these structural changes."
+      "Initialize a minimal DOX breadcrumb hierarchy.",
+      "Slim and repair this repository's AGENTS.md context routes.",
+      "Validate DOX context budgets and indexes."
     ],
     "brandColor": "#111827"
   }

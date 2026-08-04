@@ -1,0 +1,10 @@
+version = 1
+
+[budgets]
+root_max_bytes = 6000
+child_max_bytes = 4000
+chain_max_bytes = 16000
+
+[lint]
+duplicate_paragraphs = "error"
+dynamic_root_facts = "warning"

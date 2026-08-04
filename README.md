@@ -14,7 +14,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/planning`: documented grilling sessions and handoffs
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
-- `plugins/dox`: repo-owned DOX plugin with automatic AGENTS.md hierarchy adoption
+- `plugins/dox`: DOX Breadcrumbs, with minimal AGENTS.md routing and portable validation
 - `plugins/reposcout`: standalone repository context tool
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
@@ -40,6 +40,13 @@ upstream authorship and license. Ponytail's Codex-compatible lifecycle scripts
 live under `plugins/reviewing/hooks/`; Codex discovers `hooks/hooks.json`
 natively when Reviewing is enabled. Ponytail and Brooks retain their terse
 model-visible descriptions.
+
+DOX Breadcrumbs extends
+[`agent0ai/dox`](https://github.com/agent0ai/dox), licensed under the MIT
+License, with Elephant Hand plugin packaging, context-budget validation, and
+portable repository-owned CI enforcement. The public project remains the
+framework inspiration; this marketplace is the maintained implementation used
+by Elephant Hand repositories.
 
 ## Updating Vendored Matt Pocock Skills
 
@@ -125,6 +132,7 @@ Run the repository-owned checks before publishing:
 
 ```sh
 python scripts/validate_marketplace.py
+python -m unittest discover -s plugins/dox/tests -p 'test_*.py'
 node --test tests/reviewing-hooks.test.js
 ```
 

@@ -133,8 +133,9 @@ Before pushing marketplace changes:
 6. Bump a plugin version when changing install-surface metadata or behavior that
    should be reinstalled from cache.
 7. Run `python scripts/validate_marketplace.py`.
-8. Run `node --test tests/reviewing-hooks.test.js`.
-9. Commit and push to `main`.
+8. Run `python -m unittest discover -s plugins/dox/tests -p 'test_*.py'`.
+9. Run `node --test tests/reviewing-hooks.test.js`.
+10. Commit and push to `main`.
 
 After pushing:
 

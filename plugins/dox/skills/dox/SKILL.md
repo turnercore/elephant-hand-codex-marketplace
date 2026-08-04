@@ -1,34 +1,56 @@
 ---
 name: dox
-description: Initialize and maintain repository AGENTS.md hierarchies.
+description: Create, slim, repair, and maintain minimal cascading AGENTS.md context routes. Use for DOX setup, AGENTS.md hierarchy changes, context-bloat reduction, breadcrumb repair, or DOX validation.
 ---
 
-# DOX
+# DOX Breadcrumbs
 
-Keep repository instructions current through a root `AGENTS.md` contract and scoped child `AGENTS.md` files.
+Maintain self-updating, minimal `AGENTS.md` context routing. An `AGENTS.md` file is
+a breadcrumb plus a binding local contract, not a repository manual.
 
-## Decide Before Editing
+## Core rules
 
-1. Read the applicable root `AGENTS.md` and every existing child `AGENTS.md` on paths the task may touch.
-2. Treat an explicit `no DOX`, `disable DOX`, `do not use DOX`, or equivalent instruction as an opt-out. Do not install or expand DOX; continue under the existing instructions.
-3. Do not auto-install DOX for read-only review, explanation, diagnosis, exploration, or status work.
-4. For a task that will meaningfully edit a repository, initialize DOX when the root instructions do not already contain the DOX core contract and child index.
-5. If DOX is already present, maintain it after meaningful changes instead of reinstalling it.
+- Put only durable instructions whose omission could cause an agent to make a
+  wrong edit.
+- Keep cross-repository rules in root and only local differences in children.
+- Never repeat an inherited rule. Link to the authoritative detail instead.
+- Route explanations, architecture, procedures, examples, and history to normal
+  documentation.
+- Route temporary decisions to an issue, PR, spec, or handoff.
+- Record a user preference only when it is a durable rule for future repository
+  work. Product behavior belongs in code, tests, or a specification.
+- Prefer deleting or replacing text over appending another warning.
 
-## Initialize DOX
+## Before editing
 
-1. Treat this skill as the canonical DOX contract.
-2. Inspect repository structure, durable ownership boundaries, existing documentation, tests, CI, and workflows before choosing child scopes.
-3. Create or merge the root `AGENTS.md`:
-   - Preserve all existing project and user instructions.
-   - Add the DOX core contract without duplicating equivalent rules.
-   - Replace the placeholder Child DOX Index with the actual direct-child index.
-4. Create child `AGENTS.md` files only for durable boundaries with distinct purpose, ownership, contracts, workflow, or verification.
-5. Keep the first hierarchy broad and shallow. Add deeper children only when their rules differ materially from their parent.
-6. Never replace existing repository instructions wholesale with the DOX contract.
-7. Keep initialization idempotent: rerunning it must not duplicate rules, sections, or index entries.
+1. Read the root `AGENTS.md` and only the child chain covering expected targets.
+2. Use the nearest contract for local detail; a child cannot weaken a parent.
+3. Do not initialize or expand DOX for read-only work or when instructions opt out.
 
-Use this section order for child files:
+## Route new information
+
+| Information | Destination |
+|---|---|
+| Cross-cutting invariant | Root `AGENTS.md` |
+| Subtree ownership, constraint, or exact check | Nearest child `AGENTS.md` |
+| Explanation or operating procedure | Linked `docs/` page |
+| Product behavior | Source, tests, or specification |
+| Temporary or historical context | Issue, PR, handoff, or release record |
+
+If a link supplies enough direction, do not copy its contents into DOX.
+
+## Initialize
+
+1. Inspect durable ownership boundaries and existing documentation.
+2. Create the smallest useful root contract and direct-child index.
+3. Add a child only when it has rules that cannot be inherited or linked.
+4. Keep the hierarchy broad and shallow.
+5. Copy `assets/dox.toml` to `<repo>/.dox.toml`.
+6. Copy `scripts/validate_dox.py` to `<repo>/.dox/validate.py` so CI does not
+   depend on a workstation plugin cache.
+7. Add the repository's normal CI/test entry for `python3 .dox/validate.py .`.
+
+Use this child shape only when the section has useful content:
 
 - Purpose
 - Ownership
@@ -37,29 +59,35 @@ Use this section order for child files:
 - Verification
 - Child DOX Index
 
-Write each direct child as a relative Markdown link, for example `- [src](src/AGENTS.md)`. Use `None` when there are no child contracts.
+Every `AGENTS.md` needs a `Child DOX Index`; use `None.` when it has no children.
+Do not invent guidance, ownership, or verification to fill a section.
 
-Leave `Work Guidance` or `Verification` empty when no repository evidence supports content. Do not invent commands, owners, or policies.
+## Maintain and slim
 
-## Work Under DOX
+After a meaningful edit, check the owning chain. Most code changes do not change
+DOX. Edit it only when a durable boundary, invariant, ownership rule, or exact
+verification contract changed.
 
-- Before editing, walk from the repository root to every target and read each `AGENTS.md` on the route.
-- The nearest file controls local details; child instructions may not weaken the root DOX contract.
-- Keep broad rules in parents and concrete subtree rules in children.
-- Avoid duplicating the same decision across the hierarchy.
-- Delete stale instructions instead of preserving historical commentary.
+When DOX changes:
 
-## Maintain After Editing
+1. Update the nearest owner and affected indexes.
+2. Remove stale, duplicated, explanatory, or misplaced text.
+3. Move detail to documentation and leave one precise breadcrumb.
+4. Keep the net context size flat or smaller unless a new durable boundary truly
+   requires new instruction.
+5. Refresh a repository-owned validator when its embedded version is older than
+   this skill's validator.
 
-Perform a DOX pass after every meaningful change. Update the nearest owning `AGENTS.md` when the change affects purpose, ownership, structure, contracts, workflows, commands, artifacts, permissions, side effects, or verification. Update parents when their child index or parent-level contract changes.
+## Validate
 
-Small implementation edits that do not change durable behavior or contracts require the pass but may leave documentation unchanged.
+Run the repository-owned validator when present; otherwise run this skill's copy:
 
-## Close Out
+```bash
+python3 .dox/validate.py .
+# or
+python3 <this-skill-directory>/scripts/validate_dox.py <repo-root>
+```
 
-1. Re-check every changed path against its complete DOX chain.
-2. Refresh affected Child DOX Index entries.
-3. Remove stale or contradictory text.
-4. Run `python3 <this-skill-directory>/scripts/validate_dox.py <repo-root>`. Repair reported hierarchy errors, then rerun it.
-5. Run any additional repository validation relevant to changed docs or structure.
-6. Report whether DOX was initialized, updated, already current, or explicitly skipped due to opt-out/read-only scope.
+Repair hierarchy, duplicate-content, and budget errors. Treat volatile-root-fact
+warnings as prompts to move details into linked documentation. Report the largest
+loaded chain and whether total DOX context grew or shrank.
