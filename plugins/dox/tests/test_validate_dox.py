@@ -188,6 +188,24 @@ dynamic_root_facts = "off"
         self.assertEqual([], result["errors"])
         self.assertEqual([], result["warnings"])
 
+    def test_policy_can_exclude_embedded_template_contracts(self) -> None:
+        root = self.make_repo()
+        template = root / "templates" / "workspace"
+        template.mkdir(parents=True)
+        (template / "AGENTS.md").write_text("# Copied template\n", encoding="utf-8")
+        (root / ".dox.toml").write_text(
+            """version = 1
+[paths]
+exclude = ["templates/**"]
+""",
+            encoding="utf-8",
+        )
+
+        result = self.validate(root)
+
+        self.assertEqual([], result["errors"])
+        self.assertEqual(2, result["metrics"]["documents"])
+
     def test_json_cli_includes_validator_version(self) -> None:
         root = self.make_repo()
 
@@ -200,7 +218,7 @@ dynamic_root_facts = "off"
 
         self.assertEqual(0, completed.returncode, completed.stderr)
         output = json.loads(completed.stdout)
-        self.assertEqual("0.4.0", output["validator_version"])
+        self.assertEqual("0.4.1", output["validator_version"])
         self.assertEqual([], output["errors"])
 
 

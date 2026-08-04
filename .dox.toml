@@ -1,0 +1,13 @@
+version = 1
+
+[paths]
+exclude = ["plugins/teaching/skills/teach-loop/workspace-template/**"]
+
+[budgets]
+root_max_bytes = 6000
+child_max_bytes = 4000
+chain_max_bytes = 16000
+
+[lint]
+duplicate_paragraphs = "error"
+dynamic_root_facts = "warning"

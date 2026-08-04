@@ -1,5 +1,8 @@
 version = 1
 
+[paths]
+exclude = []
+
 [budgets]
 root_max_bytes = 6000
 child_max_bytes = 4000

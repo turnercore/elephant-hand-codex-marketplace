@@ -50,6 +50,9 @@ If a link supplies enough direction, do not copy its contents into DOX.
    depend on a workstation plugin cache.
 7. Add the repository's normal CI/test entry for `python3 .dox/validate.py .`.
 
+Use `[paths].exclude` only for embedded templates, generated fixtures, or vendored
+snapshots whose `AGENTS.md` files are source material rather than live contracts.
+
 Use this child shape only when the section has useful content:
 
 - Purpose

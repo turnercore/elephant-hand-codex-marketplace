@@ -131,6 +131,7 @@ in the aggregate plugin; its skill references must use
 Run the repository-owned checks before publishing:
 
 ```sh
+python .dox/validate.py .
 python scripts/validate_marketplace.py
 python -m unittest discover -s plugins/dox/tests -p 'test_*.py'
 node --test tests/reviewing-hooks.test.js

@@ -1,0 +1,36 @@
+name: Validate marketplace
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: [studio, linux]
+    steps:
+      - name: Check out repository
+        uses: https://data.forgejo.org/actions/checkout@v4
+
+      - name: Set up Python
+        uses: https://data.forgejo.org/actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node
+        uses: https://data.forgejo.org/actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate DOX Breadcrumbs
+        run: python3 .dox/validate.py .
+
+      - name: Validate marketplace
+        run: python3 scripts/validate_marketplace.py
+
+      - name: Test DOX validator
+        run: python3 -m unittest discover -s plugins/dox/tests -p 'test_*.py'
+
+      - name: Test lifecycle hooks
+        run: node --test tests/reviewing-hooks.test.js

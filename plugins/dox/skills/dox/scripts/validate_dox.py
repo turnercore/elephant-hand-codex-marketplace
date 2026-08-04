@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import re
 import sys
@@ -11,7 +12,7 @@ import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
-DOX_VALIDATOR_VERSION = "0.4.0"
+DOX_VALIDATOR_VERSION = "0.4.1"
 SKIP_DIRS = {
     ".git",
     ".hg",
@@ -39,6 +40,7 @@ DYNAMIC_FACTS = {
 
 @dataclass(frozen=True)
 class Policy:
+    exclude: tuple[str, ...] = ()
     root_max_bytes: int = 6000
     child_max_bytes: int = 4000
     chain_max_bytes: int = 16000
@@ -68,7 +70,9 @@ def load_policy(root: Path, config: Path | None) -> tuple[Policy, list[str]]:
         raise ValueError(f"unsupported policy version in {path}; expected 1")
     budgets = document.get("budgets", {})
     lint = document.get("lint", {})
+    paths = document.get("paths", {})
     values = Policy(
+        exclude=_string_list(paths, "exclude"),
         root_max_bytes=_positive_int(budgets, "root_max_bytes", Policy.root_max_bytes),
         child_max_bytes=_positive_int(budgets, "child_max_bytes", Policy.child_max_bytes),
         chain_max_bytes=_positive_int(budgets, "chain_max_bytes", Policy.chain_max_bytes),
@@ -76,6 +80,15 @@ def load_policy(root: Path, config: Path | None) -> tuple[Policy, list[str]]:
         dynamic_root_facts=_lint_level(lint, "dynamic_root_facts", Policy.dynamic_root_facts),
     )
     return values, []
+
+
+def _string_list(values: object, key: str) -> tuple[str, ...]:
+    if not isinstance(values, dict) or key not in values:
+        return ()
+    value = values[key]
+    if not isinstance(value, list) or any(not isinstance(item, str) or not item for item in value):
+        raise ValueError(f"{key} must be an array of non-empty strings")
+    return tuple(value)
 
 
 def _positive_int(values: object, key: str, default: int) -> int:
@@ -96,10 +109,14 @@ def _lint_level(values: object, key: str, default: str) -> str:
     return str(value)
 
 
-def agent_files(root: Path) -> list[Path]:
+def agent_files(root: Path, exclude: tuple[str, ...]) -> list[Path]:
     files: list[Path] = []
     for path in root.rglob("AGENTS.md"):
-        if not any(part in SKIP_DIRS for part in path.relative_to(root).parts):
+        relative_path = path.relative_to(root)
+        if (
+            not any(part in SKIP_DIRS for part in relative_path.parts)
+            and not any(fnmatch.fnmatch(relative_path.as_posix(), pattern) for pattern in exclude)
+        ):
             files.append(path.resolve())
     return sorted(files)
 
@@ -220,7 +237,7 @@ def validate(root: Path, policy: Policy) -> dict[str, object]:
     if not root_doc.is_file():
         return {"errors": ["missing root AGENTS.md"], "warnings": [], "metrics": {}}
 
-    docs = agent_files(root)
+    docs = agent_files(root, policy.exclude)
     known = set(docs)
     if root_doc not in known:
         return {"errors": ["root AGENTS.md could not be read"], "warnings": [], "metrics": {}}

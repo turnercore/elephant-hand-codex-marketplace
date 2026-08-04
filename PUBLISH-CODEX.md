@@ -132,10 +132,11 @@ Before pushing marketplace changes:
    always-visible skill list stays compact.
 6. Bump a plugin version when changing install-surface metadata or behavior that
    should be reinstalled from cache.
-7. Run `python scripts/validate_marketplace.py`.
-8. Run `python -m unittest discover -s plugins/dox/tests -p 'test_*.py'`.
-9. Run `node --test tests/reviewing-hooks.test.js`.
-10. Commit and push to `main`.
+7. Run `python .dox/validate.py .`.
+8. Run `python scripts/validate_marketplace.py`.
+9. Run `python -m unittest discover -s plugins/dox/tests -p 'test_*.py'`.
+10. Run `node --test tests/reviewing-hooks.test.js`.
+11. Commit and push to `main`.
 
 After pushing:
 
