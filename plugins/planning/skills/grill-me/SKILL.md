@@ -1,78 +1,28 @@
 ---
 name: grill-me
-description: Stress-test a plan through focused questions while recording its decisions.
+description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any "grill" trigger phrases.
 ---
 
-# Grill Me
+Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 
-Sharpen the user's idea or plan through a focused interview. Treat the user as
-the decision-maker: investigate facts yourself, then ask the user only for
-choices that cannot be discovered from the project.
+Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
-## Start the session record
+Format a round like so:
 
-Before the first substantive question, find the repository's documentation or
-planning convention and use it. Create a session record in that location. If
-there is no convention, use `.scratch/grilling/YYYY-MM-DD-<short-slug>.md` at
-the repository root. If the work has no repository, use the operating system's
-temporary directory and tell the user the path.
+```
+❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-At the top of the record, write the session's goal and links to relevant
-existing plans, issues, or documents. Tell the user which file you are
-maintaining. Update it as decisions are made; do not defer the documentation to
-the end of the session.
+➡️ <your recommended answer>
 
-Use this compact structure unless the repository already has a better one:
+---
 
-```md
-# <Session title>
+❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-## Goal
-
-## Decisions
-
-## Constraints and evidence
-
-## Open questions
-
-## Next steps
+➡️ <your recommended answer>
 ```
 
-Record resolved decisions with their rationale and record unanswered questions
-as open. Do not present speculation as a settled decision.
+Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
 
-## Interview
+Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent to find it; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
 
-Walk the design tree branch by branch until there is a shared understanding.
-For every question, provide a recommended answer and the trade-off behind it.
-
-Ask one question at a time whenever a later question depends on the answer to
-an earlier one. You may ask a small batch of two or three closely related
-questions when each can be answered independently; say why they are grouped.
-Never batch questions merely for convenience, or combine questions whose
-answers would change the recommendation for another question. Wait for the
-user's response before moving to the next dependent branch.
-
-If a fact can be found by reading the repository, issue tracker, or existing
-documentation, find it rather than asking. Surface contradictions between the
-user's description and the project evidence so the user can decide which is
-right. Probe ambiguous language and edge cases with concrete scenarios.
-
-Do not enact the plan until the user confirms the shared understanding.
-
-## Maintain project knowledge
-
-Keep durable project knowledge alongside the session record:
-
-- When a domain term is resolved, update the appropriate `CONTEXT.md` (or
-  create one lazily). Keep it a concise glossary, not a plan or implementation
-  notebook. Prefer one canonical term and list misleading alternatives under
-  `_Avoid_`.
-- If `CONTEXT-MAP.md` exists, use it to select the relevant context. Otherwise,
-  use a root `CONTEXT.md` for a single-context repository.
-- Create an ADR in `docs/adr/` only for a decision that is hard to reverse,
-  surprising without context, and the result of a real trade-off. Number it
-  after the highest existing ADR and state the context, decision, and why.
-
-At the end, ensure the session record distinguishes decisions from open
-questions and gives the user a clear next step.
+The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
