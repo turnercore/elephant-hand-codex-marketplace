@@ -4,12 +4,10 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 ## Contents
 
-- `plugins/godot`: Godot headless testing
-- `plugins/productivity`: Paperless-ngx document workflows; OpenAI's PDF plugin owns general PDF work
-- `plugins/reporting`: human-facing Draw.io diagrams, HTML artifacts, and static sharing
-- `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
+- `plugins/reporting`: polished HTML reports and interactive artifacts
+- `plugins/reviewing`: Ponytail, focused Brooks and Improve workflows, and code review
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
-- `plugins/coding`: test-driven development, agent container design, and Playprint bootstrapping
+- `plugins/coding`: test-driven development
 - `plugins/planning`: documented grilling sessions and handoffs
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
@@ -21,8 +19,7 @@ Shared Codex plugin marketplace for Elephant Hand.
 
 ## Attribution
 
-Coding includes Elephant Hand's `agent-containers` skill. Coding and Planning,
-plus `code-review` in Reviewing, vendor selected work from
+Coding and Planning, plus `code-review` in Reviewing, vendor selected work from
 [`mattpocock/skills`](https://github.com/mattpocock/skills). Original work
 copyright (c) 2026 Matt Pocock, licensed under the MIT License. Each bundle
 includes the upstream license and can now evolve independently inside this
@@ -32,8 +29,8 @@ Teaching contains Teach Loop, copyright (c) 2026 Turner Monroe and Teach Loop
 contributors, licensed under the MIT License. Teach Loop's included third-party
 notice preserves attribution for the Matt Pocock `teach` skill it extends.
 
-The Reviewing bundle vendors skills from the Elephant Hand Ponytail and Brooks
-Lint integration branches, plus Improve and Fable Review. Each retains its
+The Reviewing bundle vendors selected skills from the Elephant Hand Ponytail
+and Brooks Lint integration branches, plus Improve. Each retains its
 upstream authorship and license. Ponytail's Codex-compatible lifecycle scripts
 live under `plugins/reviewing/hooks/`; Codex discovers `hooks/hooks.json`
 natively when Reviewing is enabled. Ponytail and Brooks retain their terse
@@ -72,7 +69,7 @@ adaptations, validate the affected bundles, and bump their versions. The
 retained set is:
 
 - Planning: `grill-me` and `handoff`
-- Coding: `tdd` (plus Elephant Hand's `playprint-bootstrap`)
+- Coding: `tdd`
 - Reviewing: `code-review`
 
 All other Matt Pocock skills are intentionally excluded. Teaching contains
@@ -113,11 +110,10 @@ During conflict resolution, preserve the short `description` in every
 `skills/*/SKILL.md`. Copy Ponytail's Codex hook scripts into
 `plugins/reviewing/hooks/` and its hook configuration to
 `plugins/reviewing/hooks/hooks.json`; the default path avoids a redundant
-manifest override. After updating a source, copy its skill directories into
+manifest override. After updating a source, copy only the retained skill directories into
 `plugins/reviewing/skills/`, validate the Reviewing plugin, and bump its version
 so an upgrade does not reuse stale cache. Improve
-comes from [`shadcn/improve`](https://github.com/shadcn/improve); Fable Review
-comes from [`turnercore/anthropic-batch-processing-cli`](https://forge.elephanthand.com/turnercore/anthropic-batch-processing-cli).
+comes from [`shadcn/improve`](https://github.com/shadcn/improve).
 
 Brooks' upstream `_shared/` files live at `plugins/reviewing/references/brooks/`
 in the aggregate plugin; its skill references must use

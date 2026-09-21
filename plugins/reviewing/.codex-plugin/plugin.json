@@ -1,7 +1,7 @@
 {
   "name": "reviewing",
-  "version": "0.3.1",
-  "description": "Review repositories for over-engineering, architecture health, and improvement opportunities with native Ponytail lifecycle hooks.",
+  "version": "0.3.2",
+  "description": "Run focused code, architecture, improvement, and over-engineering reviews with native Ponytail lifecycle hooks.",
   "author": {
     "name": "Elephant Hand and upstream authors",
     "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Reviewing",
     "shortDescription": "Repository and code review workflows.",
-    "longDescription": "Combines Ponytail's Codex-native lifecycle hooks and review modes, Brooks architecture checks, Improve advisory workflow, Fable batch reviews, and standards-versus-spec code review behind one toggle.",
+    "longDescription": "Combines Ponytail's Codex-native lifecycle hooks and review modes with one Brooks architecture review, Improve advisory planning, and standards-versus-spec code review.",
     "developerName": "Elephant Hand and upstream authors",
     "category": "Developer Tools",
     "capabilities": [

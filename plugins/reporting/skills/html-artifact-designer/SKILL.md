@@ -7,21 +7,13 @@ description: Create polished HTML reports and interactive artifacts.
 
 ## Workflow
 
-Use this skill when an HTML artifact is the user-facing output. Compose it with `$share-static-html` after writing the file; sharing is automatic whenever this skill creates or updates an HTML artifact.
+Use this skill when an HTML artifact is the user-facing output.
 
 1. Pick exactly one primary artifact type: **Report**, **Plan**, **Option Gallery**, or **Workbench**. Mix types only when the user asks for it.
 2. Create one self-contained `.html` file unless the artifact needs reusable assets. Use `assets/elephant-hand-artifact.css` only when it is the best default theme for the artifact.
 3. Make the first viewport useful: title, context, primary result, and the most important next action or comparison.
 4. Use real visual structure: metric strips, tables, grouped findings, charts with inline SVG or canvas, and compact cards for repeated items.
 5. Check `references/feedback-lessons.md` for generalized lessons before finalizing.
-6. Serve the finished HTML with:
-
-```bash
-python3 ../share-static-html/scripts/serve_static_html.py /absolute/path/to/artifact.html
-```
-
-If multiple HTML artifacts are created, serve each one and return the Tailscale URLs.
-
 ## Artifact Types
 
 ### Report
@@ -159,4 +151,3 @@ Before final response:
 
 - Open or inspect the file enough to catch obvious broken links and malformed HTML.
 - If the page has JS controls, run a browser check when practical.
-- Serve it with `$share-static-html` and return the Tailscale URL.

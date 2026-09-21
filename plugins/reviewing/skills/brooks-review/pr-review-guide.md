@@ -151,8 +151,7 @@ Label the risk as the test decay risk name (e.g., "Coverage Illusion", "Mock Abu
 "Test Obscurity").
 
 > **Note:** Step 7 is a fast check, not a full test audit. When systemic test problems
-> are found, note in the Summary: "Consider running `/brooks-lint:brooks-test` for a
-> complete test quality diagnosis."
+> are found, recommend a dedicated test-quality diagnosis in the Summary.
 
 ---
 

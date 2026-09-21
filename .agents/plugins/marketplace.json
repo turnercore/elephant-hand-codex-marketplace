@@ -5,30 +5,6 @@
   },
   "plugins": [
     {
-      "name": "godot",
-      "source": {
-        "source": "local",
-        "path": "./plugins/godot"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
-    },
-    {
-      "name": "productivity",
-      "source": {
-        "source": "local",
-        "path": "./plugins/productivity"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
       "name": "reporting",
       "source": {
         "source": "local",

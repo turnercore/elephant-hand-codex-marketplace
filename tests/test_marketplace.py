@@ -50,7 +50,6 @@ def test_normalizer_replaces_legacy_plugins():
         "dox@elephant-hand",
         "forgejo@elephant-hand",
         "planning@elephant-hand",
-        "productivity@elephant-hand",
         "teaching@elephant-hand",
     }
 

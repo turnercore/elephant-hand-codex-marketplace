@@ -24,8 +24,6 @@ After adding the marketplace, open the Codex plugin directory and install the
 plugins you want, or install from the CLI:
 
 ```sh
-codex plugin add godot@elephant-hand
-codex plugin add productivity@elephant-hand
 codex plugin add reporting@elephant-hand
 codex plugin add reviewing@elephant-hand
 codex plugin add teaching@elephant-hand

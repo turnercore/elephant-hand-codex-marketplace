@@ -19,7 +19,6 @@ STUDIO_PLUGINS = {
     "dox@elephant-hand",
     "forgejo@elephant-hand",
     "planning@elephant-hand",
-    "productivity@elephant-hand",
     "reporting@elephant-hand",
     "reviewing@elephant-hand",
     "teaching@elephant-hand",
