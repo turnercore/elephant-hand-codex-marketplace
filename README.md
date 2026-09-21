@@ -10,12 +10,10 @@ Shared Codex plugin marketplace for Elephant Hand.
 - `plugins/reviewing`: Ponytail, Brooks Lint, Improve, Fable, and code review workflows
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
 - `plugins/coding`: test-driven development, agent container design, and Playprint bootstrapping
-- `plugins/subagents`: economical, context-saving subagent delegation
 - `plugins/planning`: documented grilling sessions and handoffs
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
 - `plugins/dox`: DOX Breadcrumbs, with minimal AGENTS.md routing and portable validation
-- `plugins/reposcout`: standalone repository context tool
 - `.agents/plugins/marketplace.json`: marketplace registry for Codex
 - `plugins/grist/.env.example`: local environment template for Grist credentials
 - `plugins/forgejo/.env.example`: local environment template for Forgejo credentials
@@ -148,8 +146,8 @@ python scripts/normalize_codex_installation.py --apply
 ```
 
 The normalizer upgrades the marketplace, removes superseded plugin IDs,
-installs the shared studio set, installs RepoScout only when Docker is ready,
-and removes only the legacy global Ponytail hook handlers. It backs up a config
+installs the shared studio set, and removes only the legacy global Ponytail
+hook handlers. It backs up a config
 file before any direct fallback edit.
 
 ## Compact Skill Descriptions

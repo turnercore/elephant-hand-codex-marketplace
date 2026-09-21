@@ -77,18 +77,6 @@
       "category": "Developer Tools"
     },
     {
-      "name": "subagents",
-      "source": {
-        "source": "local",
-        "path": "./plugins/subagents"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
-    },
-    {
       "name": "planning",
       "source": {
         "source": "local",
@@ -135,18 +123,6 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Developer Tools"
-    },
-    {
-      "name": "reposcout",
-      "source": {
-        "source": "local",
-        "path": "./plugins/reposcout"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
     }
   ]
 }

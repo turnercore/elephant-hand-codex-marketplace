@@ -22,7 +22,6 @@ STUDIO_PLUGINS = {
     "productivity@elephant-hand",
     "reporting@elephant-hand",
     "reviewing@elephant-hand",
-    "subagents@elephant-hand",
     "teaching@elephant-hand",
 }
 LEGACY_PLUGINS = {
@@ -35,7 +34,6 @@ LEGACY_PLUGINS = {
     "mattpocock-skills@elephant-hand",
     "ponytail@elephant-hand",
     "ponytail@ponytail",
-    "reposcout@elephant-hand-codex-marketplace",
 }
 PLUGIN_TABLE = re.compile(r'^\[plugins\."([^"]+)"\]\s*$')
 
@@ -70,34 +68,16 @@ def list_available(codex: str) -> set[str]:
     }
 
 
-def podman_is_ready() -> bool:
-    if not shutil.which("podman"):
-        return False
-    try:
-        return subprocess.run(
-            ["podman", "info"],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            check=False,
-            timeout=5,
-        ).returncode == 0
-    except subprocess.TimeoutExpired:
-        return False
-
-
 def plan_actions(
     enabled: set[str],
     available: set[str],
     *,
-    podman_ready: bool,
     configured: set[str] | None = None,
 ) -> tuple[list[str], list[str], list[str]]:
     configured = configured if configured is not None else enabled
     desired = set(STUDIO_PLUGINS)
     if "pdf@openai-primary-runtime" in available:
         desired.add("pdf@openai-primary-runtime")
-    if podman_ready:
-        desired.add("reposcout@elephant-hand")
     if "grist@elephant-hand-codex-marketplace" in configured:
         desired.add("grist@elephant-hand")
 
@@ -226,7 +206,6 @@ def main() -> int:
     removals, additions, unavailable = plan_actions(
         enabled,
         available,
-        podman_ready=podman_is_ready(),
         configured=configured,
     )
 

@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import os
-import subprocess
 import sys
 from pathlib import Path
 
@@ -39,54 +37,7 @@ def test_duplicate_skill_names_are_rejected(tmp_path):
     }
 
 
-def test_reposcout_wrapper_mounts_read_only_and_rewrites_localhost(tmp_path):
-    repo_root = tmp_path / "repo"
-    repo_root.mkdir()
-    fake_bin = tmp_path / "bin"
-    fake_bin.mkdir()
-    podman_args = tmp_path / "podman-args"
-    fake_podman = fake_bin / "podman"
-    fake_podman.write_text(
-        """#!/bin/sh
-if [ "$1" = "info" ]; then
-  exit 0
-fi
-printf '%s\\n' "$@" > "$FAKE_PODMAN_ARGS"
-""",
-        encoding="utf-8",
-    )
-    fake_podman.chmod(0o755)
-    env = {
-        **os.environ,
-        "PATH": f"{fake_bin}{os.pathsep}{os.environ['PATH']}",
-        "FAKE_PODMAN_ARGS": str(podman_args),
-        "REPOSCOUT_REPO_ROOT": str(repo_root),
-        "REPOSCOUT_IMAGE": "example.invalid/reposcout-mcp:test",
-        "FASTCONTEXT_MODEL": "test-model",
-        "FASTCONTEXT_BASE_URL": "http://localhost:1234/v1",
-        "REPOSCOUT_MAX_TOOL_CALLS_PER_TURN": "4",
-        "REPOSCOUT_MAX_LINE_CHARS": "512",
-    }
-
-    result = subprocess.run(
-        [str(ROOT / "plugins" / "reposcout" / "scripts" / "run_reposcout_mcp.sh")],
-        cwd=ROOT,
-        env=env,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-
-    assert result.returncode == 0, result.stderr
-    args = podman_args.read_text(encoding="utf-8").splitlines()
-    assert f"{repo_root.resolve()}:/workspace:ro" in args
-    assert "FASTCONTEXT_BASE_URL=http://host.containers.internal:1234/v1" in args
-    assert "REPOSCOUT_MAX_TOOL_CALLS_PER_TURN" in args
-    assert "REPOSCOUT_MAX_LINE_CHARS" in args
-    assert not any("/cache" in arg for arg in args)
-
-
-def test_normalizer_replaces_legacy_plugins_and_respects_podman():
+def test_normalizer_replaces_legacy_plugins():
     installed = {
         "html-artifacts@elephant-hand",
         "mattpocock-skills@elephant-hand",
@@ -95,19 +46,15 @@ def test_normalizer_replaces_legacy_plugins_and_respects_podman():
         "pdf@openai-primary-runtime",
         "reporting@elephant-hand",
         "reviewing@elephant-hand",
-        "reposcout@elephant-hand",
         "coding@elephant-hand",
         "dox@elephant-hand",
         "forgejo@elephant-hand",
         "planning@elephant-hand",
         "productivity@elephant-hand",
-        "subagents@elephant-hand",
         "teaching@elephant-hand",
     }
 
-    removals, additions, unavailable = plan_actions(
-        installed, available, podman_ready=False
-    )
+    removals, additions, unavailable = plan_actions(installed, available)
 
     assert removals == [
         "html-artifacts@elephant-hand",
@@ -115,7 +62,6 @@ def test_normalizer_replaces_legacy_plugins_and_respects_podman():
     ]
     assert "reporting@elephant-hand" in additions
     assert "reviewing@elephant-hand" in additions
-    assert "reposcout@elephant-hand" not in additions
     assert unavailable == []
 
 
@@ -123,7 +69,6 @@ def test_normalizer_reenables_disabled_baseline_plugin():
     removals, additions, unavailable = plan_actions(
         set(),
         {"reviewing@elephant-hand"},
-        podman_ready=False,
         configured={"reviewing@elephant-hand"},
     )
 

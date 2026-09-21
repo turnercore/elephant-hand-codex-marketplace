@@ -1,6 +1,6 @@
 {
   "name": "reviewing",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Review repositories for over-engineering, architecture health, and improvement opportunities with native Ponytail lifecycle hooks.",
   "author": {
     "name": "Elephant Hand and upstream authors",

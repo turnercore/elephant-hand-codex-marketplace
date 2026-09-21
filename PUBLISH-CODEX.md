@@ -30,12 +30,10 @@ codex plugin add reporting@elephant-hand
 codex plugin add reviewing@elephant-hand
 codex plugin add teaching@elephant-hand
 codex plugin add coding@elephant-hand
-codex plugin add subagents@elephant-hand
 codex plugin add planning@elephant-hand
 codex plugin add grist@elephant-hand
 codex plugin add forgejo@elephant-hand
 codex plugin add dox@elephant-hand
-codex plugin add reposcout@elephant-hand
 ```
 
 ## Upgrade
