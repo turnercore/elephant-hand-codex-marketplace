@@ -48,7 +48,7 @@ by Elephant Hand repositories.
 Clone the Elephant Hand fork and keep both remotes:
 
 ```sh
-git clone ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/mattpocock-skills.git
+git clone ssh://git@forge.elephanthand.com:41004/elephant-hand/mattpocock-skills.git
 cd mattpocock-skills
 git remote add upstream https://github.com/mattpocock/skills.git
 ```
@@ -82,13 +82,13 @@ Hand fork and add its public source as `upstream`:
 
 ```sh
 # Ponytail
-git clone ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/ponytail.git
+git clone ssh://git@forge.elephanthand.com:41004/elephant-hand/ponytail.git
 cd ponytail
 git remote add upstream https://github.com/DietrichGebert/ponytail.git
 cd ..
 
 # Brooks Lint
-git clone ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/brooks-lint.git
+git clone ssh://git@forge.elephanthand.com:41004/elephant-hand/brooks-lint.git
 cd brooks-lint
 git remote add upstream https://github.com/hyhmrright/brooks-lint.git
 ```
@@ -158,7 +158,7 @@ Add this marketplace to Codex as a Git marketplace, not as a local path:
 
 ```sh
 codex plugin marketplace add \
-  ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/elephant-hand-codex-marketplace.git \
+  ssh://git@forge.elephanthand.com:41004/elephant-hand/elephant-hand-codex-marketplace.git \
   --ref main
 ```
 

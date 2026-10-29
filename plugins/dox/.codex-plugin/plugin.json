@@ -4,10 +4,10 @@
   "description": "Self-updating minimal AGENTS.md context routing.",
   "author": {
     "name": "Elephant Hand",
-    "url": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace"
+    "url": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace"
   },
-  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
-  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "homepage": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
   "license": "MIT",
   "keywords": ["agents-md", "documentation", "repository", "codex"],
   "skills": "./skills/",
@@ -18,7 +18,7 @@
     "developerName": "Elephant Hand",
     "category": "Developer Tools",
     "capabilities": ["Read", "Write", "Interactive"],
-    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
       "Initialize a minimal DOX breadcrumb hierarchy.",
       "Slim and repair this repository's AGENTS.md context routes.",

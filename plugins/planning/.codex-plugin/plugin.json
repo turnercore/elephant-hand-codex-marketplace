@@ -4,10 +4,10 @@
   "description": "Stress-test plans while preserving their decisions and handoffs.",
   "author": {
     "name": "Matt Pocock and Elephant Hand",
-    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+    "url": "https://forge.elephanthand.com/elephant-hand"
   },
-  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
-  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "homepage": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
   "license": "MIT",
   "keywords": [
     "planning",
@@ -26,7 +26,7 @@
       "Write",
       "Interactive"
     ],
-    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
       "Grill this plan with me and keep the decisions documented.",
       "Create a handoff for the next session."

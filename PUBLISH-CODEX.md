@@ -13,7 +13,7 @@ Add this marketplace as a Git-backed marketplace, not as a local path:
 
 ```sh
 codex plugin marketplace add \
-  ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/elephant-hand-codex-marketplace.git \
+  ssh://git@forge.elephanthand.com:41004/elephant-hand/elephant-hand-codex-marketplace.git \
   --ref main
 ```
 
@@ -48,7 +48,7 @@ marketplace, remove the stale local-path registration and add the SSH URL again:
 ```sh
 codex plugin marketplace remove elephant-hand
 codex plugin marketplace add \
-  ssh://git@forge.elephanthand.com:41004/Elephant-Hand-Games/elephant-hand-codex-marketplace.git \
+  ssh://git@forge.elephanthand.com:41004/elephant-hand/elephant-hand-codex-marketplace.git \
   --ref main
 ```
 

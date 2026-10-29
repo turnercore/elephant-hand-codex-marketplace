@@ -4,10 +4,10 @@
   "description": "Build features and fix bugs test-first with focused red-green cycles.",
   "author": {
     "name": "Matt Pocock and Elephant Hand",
-    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+    "url": "https://forge.elephanthand.com/elephant-hand"
   },
-  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
-  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "homepage": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
   "license": "MIT",
   "keywords": [
     "coding",
@@ -27,7 +27,7 @@
       "Write",
       "Interactive"
     ],
-    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
       "Build this change test-first."
     ],
