@@ -4,10 +4,10 @@
   "description": "Run focused code, architecture, improvement, and over-engineering reviews with native Ponytail lifecycle hooks.",
   "author": {
     "name": "Elephant Hand and upstream authors",
-    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+    "url": "https://forge.elephanthand.com/elephant-hand"
   },
-  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
-  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "homepage": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
   "license": "MIT",
   "keywords": [
     "review",
@@ -29,7 +29,7 @@
       "Write",
       "Interactive"
     ],
-    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
       "Review this diff for over-engineering.",
       "Assess this repository's architecture health.",

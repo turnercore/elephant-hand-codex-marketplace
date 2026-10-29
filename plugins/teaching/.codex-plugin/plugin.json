@@ -5,10 +5,10 @@
   "author": {
     "name": "Turner Monroe / Elephant Hand",
     "email": "me@turnercore.dev",
-    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+    "url": "https://forge.elephanthand.com/elephant-hand"
   },
-  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
-  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "homepage": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
   "license": "MIT",
   "keywords": [
     "teaching",
@@ -29,7 +29,7 @@
       "Write",
       "Interactive"
     ],
-    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
       "Help me start learning a new subject.",
       "Create the next interactive lesson for me.",

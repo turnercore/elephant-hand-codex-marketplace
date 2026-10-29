@@ -85,7 +85,7 @@ Use plain browser APIs unless the user asked for a real app. Avoid build steps f
 
 - Prefer dense, readable application UI over marketing pages.
 - Use restrained surfaces: page bands, tables, compact cards, and clear section rhythm.
-- Use the Elephant Hand artifact CSS for default report/workbench chrome when no more specific visual language is needed. It is based on the `Elephant-Hand-Games/elephant-hand-website` woodblock-paper style: warm paper, deep blue ink, crimson actions, ochre/green/orange accents, 3px borders, hard offset shadows, uppercase UI labels, and editorial body copy.
+- Use the Elephant Hand artifact CSS for default report/workbench chrome when no more specific visual language is needed. It is based on the `elephant-hand/elephant-hand-website` woodblock-paper style: warm paper, deep blue ink, crimson actions, ochre/green/orange accents, 3px borders, hard offset shadows, uppercase UI labels, and editorial body copy.
 - Do not force the default CSS onto a design gallery or workbench whose purpose is exploring another game, website, product, brand, or proposed visual direction. In those cases, style the artifact to fit the thing being explored.
 - Do not make the page look like a Markdown export in a browser. Add navigation, hierarchy, and visual summaries.
 - Do not hide important numbers in paragraphs. Put key metrics in cards or tables.

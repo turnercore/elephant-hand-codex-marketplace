@@ -19,7 +19,7 @@ Fold repeated lessons into `SKILL.md`, `artifact-recipes.md`, or `elephant-hand-
   **General rule:** Treat bundled CSS as a default for ordinary artifacts, not mandatory styling. Use artifact-specific styling when the visual design itself is being explored.
   **Applies to:** Option Gallery, Workbench, CSS.
 - **Symptom:** Default artifact CSS was created before inspecting the actual Elephant Hand website style.
-  **General rule:** Default Elephant Hand artifacts should follow `Elephant-Hand-Games/elephant-hand-website`: woodblock-paper palette, deep blue ink, crimson actions, ochre/green/orange accents, 3px borders, and hard offset shadows.
+  **General rule:** Default Elephant Hand artifacts should follow `elephant-hand/elephant-hand-website`: woodblock-paper palette, deep blue ink, crimson actions, ochre/green/orange accents, 3px borders, and hard offset shadows.
   **Applies to:** Report, CSS.
 - **Symptom:** HTML plans could drift from companion Markdown handoff files and make review harder.
   **General rule:** MD-backed plans should create the Markdown first, render it inside the HTML, include useful diagrams, embed the Markdown hash, and warn when the linked Markdown changes.

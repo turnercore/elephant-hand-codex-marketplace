@@ -5,10 +5,10 @@
   "author": {
     "name": "Turner Core / Elephant Hand",
     "email": "me@turnercore.dev",
-    "url": "https://forge.elephanthand.com/Elephant-Hand-Games"
+    "url": "https://forge.elephanthand.com/elephant-hand"
   },
-  "homepage": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
-  "repository": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+  "homepage": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
+  "repository": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
   "license": "MIT",
   "keywords": [
     "reporting",
@@ -28,7 +28,7 @@
       "Write",
       "Interactive"
     ],
-    "websiteURL": "https://forge.elephanthand.com/Elephant-Hand-Games/elephant-hand-codex-marketplace",
+    "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
       "Turn these findings into a polished HTML report."
     ],
