@@ -5,10 +5,10 @@ Shared Codex plugin marketplace for Elephant Hand.
 ## Contents
 
 - `plugins/reporting`: polished HTML reports and interactive artifacts
-- `plugins/reviewing`: Ponytail, focused Brooks and Improve workflows, and code review
+- `plugins/reviewing`: Ponytail, Improve workflows, and code review
 - `plugins/teaching`: Teach Loop's adaptive tutoring and interactive lesson workspace
 - `plugins/coding`: test-driven development
-- `plugins/planning`: documented grilling sessions and handoffs
+- `plugins/planning`: documented grilling sessions
 - `plugins/grist`: standalone Grist integration
 - `plugins/forgejo`: standalone Elephant Hand Forgejo integration
 - `plugins/dox`: DOX Breadcrumbs, with minimal AGENTS.md routing and portable validation
@@ -30,11 +30,10 @@ contributors, licensed under the MIT License. Teach Loop's included third-party
 notice preserves attribution for the Matt Pocock `teach` skill it extends.
 
 The Reviewing bundle vendors selected skills from the Elephant Hand Ponytail
-and Brooks Lint integration branches, plus Improve. Each retains its
-upstream authorship and license. Ponytail's Codex-compatible lifecycle scripts
-live under `plugins/reviewing/hooks/`; Codex discovers `hooks/hooks.json`
-natively when Reviewing is enabled. Ponytail and Brooks retain their terse
-model-visible descriptions.
+integration branch, plus Improve. Each retains its upstream authorship and
+license. Ponytail's Codex-compatible lifecycle scripts live under
+`plugins/reviewing/hooks/`; Codex discovers `hooks/hooks.json` natively when
+Reviewing is enabled. Ponytail retains its terse model-visible descriptions.
 
 DOX Breadcrumbs extends
 [`agent0ai/dox`](https://github.com/agent0ai/dox), licensed under the MIT
@@ -68,7 +67,7 @@ skills deliberately, preserve the short Codex descriptions and local
 adaptations, validate the affected bundles, and bump their versions. The
 retained set is:
 
-- Planning: `grill-me` and `handoff`
+- Planning: `grill-me`
 - Coding: `tdd`
 - Reviewing: `code-review`
 
@@ -77,8 +76,8 @@ Elephant Hand's independently maintained Teach Loop skill.
 
 ## Updating Reviewing Sources
 
-Both plugins use the same two-branch integration pattern. Clone the Elephant
-Hand fork and add its public source as `upstream`:
+Ponytail uses a two-branch integration pattern. Clone the Elephant Hand fork
+and add its public source as `upstream`:
 
 ```sh
 # Ponytail
@@ -86,14 +85,9 @@ git clone ssh://git@forge.elephanthand.com:41004/elephant-hand/ponytail.git
 cd ponytail
 git remote add upstream https://github.com/DietrichGebert/ponytail.git
 cd ..
-
-# Brooks Lint
-git clone ssh://git@forge.elephanthand.com:41004/elephant-hand/brooks-lint.git
-cd brooks-lint
-git remote add upstream https://github.com/hyhmrright/brooks-lint.git
 ```
 
-For either fork, update the upstream-tracking baseline, then merge it into the
+Update the upstream-tracking baseline, then merge it into the
 Elephant Hand integration branch:
 
 ```sh
@@ -114,11 +108,6 @@ manifest override. After updating a source, copy only the retained skill directo
 `plugins/reviewing/skills/`, validate the Reviewing plugin, and bump its version
 so an upgrade does not reuse stale cache. Improve
 comes from [`shadcn/improve`](https://github.com/shadcn/improve).
-
-Brooks' upstream `_shared/` files live at `plugins/reviewing/references/brooks/`
-in the aggregate plugin; its skill references must use
-`../../references/brooks/`. Ponytail's aggregate copy omits the unsupported
-`argument-hint` frontmatter field.
 
 ## Validation
 
