@@ -1,7 +1,7 @@
 {
   "name": "reviewing",
-  "version": "0.3.2",
-  "description": "Run focused code, architecture, improvement, and over-engineering reviews with native Ponytail lifecycle hooks.",
+  "version": "0.4.0",
+  "description": "Run focused code, improvement, and over-engineering reviews with native Ponytail lifecycle hooks.",
   "author": {
     "name": "Elephant Hand and upstream authors",
     "url": "https://forge.elephanthand.com/elephant-hand"
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Reviewing",
     "shortDescription": "Repository and code review workflows.",
-    "longDescription": "Combines Ponytail's Codex-native lifecycle hooks and review modes with one Brooks architecture review, Improve advisory planning, and standards-versus-spec code review.",
+    "longDescription": "Combines Ponytail's Codex-native lifecycle hooks and review modes with Improve advisory planning and standards-versus-spec code review.",
     "developerName": "Elephant Hand and upstream authors",
     "category": "Developer Tools",
     "capabilities": [
@@ -32,7 +32,6 @@
     "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
       "Review this diff for over-engineering.",
-      "Assess this repository's architecture health.",
       "Review this branch against its standards and spec."
     ],
     "brandColor": "#6D28D9"

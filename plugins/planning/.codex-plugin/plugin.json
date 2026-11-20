@@ -1,7 +1,7 @@
 {
   "name": "planning",
-  "version": "0.2.0",
-  "description": "Stress-test plans while preserving their decisions and handoffs.",
+  "version": "0.3.0",
+  "description": "Stress-test plans through structured grilling sessions while preserving decisions.",
   "author": {
     "name": "Matt Pocock and Elephant Hand",
     "url": "https://forge.elephanthand.com/elephant-hand"
@@ -11,14 +11,13 @@
   "license": "MIT",
   "keywords": [
     "planning",
-    "decision-records",
-    "handoff"
+    "decision-records"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Planning",
-    "shortDescription": "Grilling interviews with durable decisions and handoffs.",
-    "longDescription": "Stress-test an idea one decision at a time, keep the session and project knowledge documented, and hand the work off cleanly when needed.",
+    "shortDescription": "Grilling interviews with durable decisions.",
+    "longDescription": "Stress-test an idea one decision at a time and keep the session and project decisions documented.",
     "developerName": "Matt Pocock / Elephant Hand",
     "category": "Productivity",
     "capabilities": [
@@ -28,8 +27,7 @@
     ],
     "websiteURL": "https://forge.elephanthand.com/elephant-hand/elephant-hand-codex-marketplace",
     "defaultPrompt": [
-      "Grill this plan with me and keep the decisions documented.",
-      "Create a handoff for the next session."
+      "Grill this plan with me and keep the decisions documented."
     ],
     "brandColor": "#7C3AED"
   }
