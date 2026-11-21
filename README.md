@@ -109,6 +109,8 @@ manifest override. After updating a source, copy only the retained skill directo
 so an upgrade does not reuse stale cache. Improve
 comes from [`shadcn/improve`](https://github.com/shadcn/improve).
 
+Ponytail's aggregate copy omits the unsupported `argument-hint` frontmatter field.
+
 ## Validation
 
 Run the repository-owned checks before publishing:
